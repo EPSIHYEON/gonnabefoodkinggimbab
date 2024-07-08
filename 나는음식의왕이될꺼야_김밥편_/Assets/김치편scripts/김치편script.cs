@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class 김치편script : MonoBehaviour
 {
+    public GameObject BlackOut;
     public Text dialogueText;
     public Text nameText;// Reference to your UI Text component
+    public float doubleClickTimeThreshold = 0.05f; // 더블 클릭 간격 임계값 (초)
+    //private float lastClickTime = 0f; // 마지막 클릭 시간 기록 변수
     string[] dialogues = { "음식의 왕이 되러 가볼까!! ", "잠깐!!! ", 
         "어디서 매 식사마다 안나오는 것이 음식의 왕이 되려 햇!!! ", "뭐냐!! 너도 음식의 지배자가 되고 싶은거냐!! ",
     "당연하지!! 김치 없으면 음식들이 넘어가기나 해???", "어디에나 있어야하는 존재가 당연히 지배자의 자질 아니겠어? ","크윽...어쩔 수 없군.... 음식 배틀로 붙자!!! ","흥! 당연히 나의 승리짓!!! "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
@@ -16,9 +19,10 @@ public class 김치편script : MonoBehaviour
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
+   
     int[] imageNumber = { 0, 1, 1, 0,0,0,0, 0 };
 
-    public GameObject BlackOut;
+    
     private Coroutine typingCoroutine;
 
     void Update()
@@ -26,7 +30,7 @@ public class 김치편script : MonoBehaviour
         // Check if the mouse button is clicked
         if (Input.GetMouseButtonDown(0))
         {
-
+            
             // Check if there are more dialogues to display
             if (currentDialogueIndex2 < dialogues.Length)
             {
@@ -34,14 +38,12 @@ public class 김치편script : MonoBehaviour
                 showName();
                 ShowDialogue();
                 typingCoroutine = StartCoroutine(_typing(dialogues[currentDialogueIndex2 - 1]));
-                // Display the next dialogue
-
-
             }
+
 
             else
             {
-                //BlackOut.SetActive(true);
+                BlackOut.SetActive(true);
                 Invoke("SetScene", 1f);
             }
         }
@@ -90,19 +92,23 @@ public class 김치편script : MonoBehaviour
 
     IEnumerator _typing(string currentDialogue)
     {
-        for (int i = 0; i < currentDialogue.Length; i++)
+
+        for (int i = 0; i <= currentDialogue.Length; i++)
         {
 
-            dialogueText.text = currentDialogue.Substring(0, i);
+            dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
-
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
 
 
         }
+
+
+
+
     }
 
-        void SetScene()
+    void SetScene()
         {
             SceneManager.LoadScene("김치2");
         }
