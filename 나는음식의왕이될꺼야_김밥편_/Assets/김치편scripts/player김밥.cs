@@ -17,7 +17,7 @@ public class player김밥 : MonoBehaviour
     {
         move();
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")|| Input.GetButtonDown("Jump"))
         {
             shoot();
         }
