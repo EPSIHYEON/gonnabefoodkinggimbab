@@ -36,15 +36,19 @@ public class bulletspawner : MonoBehaviour
 
         if (rb != null)
         {
-            if (randomIndex == 0 || randomIndex == 1)
+            if (randomIndex == 0 || randomIndex == 1 || randomIndex == 2)
             {
                 rb.velocity = new Vector2(0, -1).normalized * speed;
             }
-            else if (randomIndex == 2 || randomIndex == 3)
+            else if (randomIndex == 3 || randomIndex == 4)
             {
-                rb.velocity = new Vector2(-1, -1).normalized * speed;
+                rb.velocity = new Vector2(5, -3).normalized * speed;
             }
             // 나머지 경우에 대한 속도 설정 추가 가능
+            else if (randomIndex == 5 || randomIndex == 6)
+            {
+                rb.velocity = new Vector2(-5, -3).normalized * speed;
+            }
         }
     }
 

@@ -8,7 +8,7 @@ public class 김치편script : MonoBehaviour
 {
     public GameObject BlackOut;
     public Text dialogueText;
-
+    
     public Text nameText;// Reference to your UI Text component
    
 
@@ -17,7 +17,7 @@ public class 김치편script : MonoBehaviour
     "당연하지!! 김치 없으면 음식들이 넘어가기나 해???", "어디에나 있어야하는 존재가 당연히 지배자의 자질 아니겠어? ","크윽...어쩔 수 없군.... 음식 배틀로 붙자!!! ","흥! 당연히 나의 승리짓!!! "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
     string[] namepanel = { "김밥", "???", "김치","김밥","김치","김치","김밥","김치"  };
     public Image[] characterImage;
-
+    private bool isTyping = false;
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
@@ -30,7 +30,7 @@ public class 김치편script : MonoBehaviour
     void Update()
     {
         // Check if the mouse button is clicked
-        if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
+        if ((Input.GetKeyDown("space") && !isTyping) || Input.GetMouseButtonDown(0) && !isTyping)
         {
             
             // Check if there are more dialogues to display
@@ -100,7 +100,7 @@ public class 김치편script : MonoBehaviour
 
     IEnumerator typing(string currentDialogue)
     {
-
+        isTyping = true;
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
 
@@ -110,7 +110,7 @@ public class 김치편script : MonoBehaviour
 
            
         }
-
+        isTyping = false;
 
 
 
