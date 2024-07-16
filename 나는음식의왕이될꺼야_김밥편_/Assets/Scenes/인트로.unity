@@ -219,6 +219,7 @@ RectTransform:
   - {fileID: 1988046646}
   - {fileID: 1297518033}
   - {fileID: 853953826}
+  - {fileID: 2131175864}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -533,10 +534,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce7e888c785dd649a0b83d8869b6661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1988046647}
-  nameText: {fileID: 0}
+  dialogueText1: {fileID: 1988046647}
+  nextText2: {fileID: 1306091025}
+  nameText: {fileID: 270340667}
   "\uAE40\uBC25panel": {fileID: 1297518032}
   characterImage: []
+  Gimbab: {fileID: 2131175865}
 --- !u!1 &1297518032
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +552,6 @@ GameObject:
   - component: {fileID: 1297518037}
   - component: {fileID: 1297518036}
   - component: {fileID: 1297518035}
-  - component: {fileID: 1297518034}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -579,24 +581,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 13}
   m_SizeDelta: {x: -16, y: 82.4772}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1297518034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297518032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ece98cb2f3f44a47977e1eee4c7d527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BlackOut: {fileID: 0}
-  dialogueText: {fileID: 1306091025}
-  nameText: {fileID: 270340667}
-  characterImage:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1297518035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,4 +937,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990130300}
+  m_CullTransparentMesh: 1
+--- !u!1 &2131175863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2131175864}
+  - component: {fileID: 2131175866}
+  - component: {fileID: 2131175865}
+  m_Layer: 5
+  m_Name: Gimbab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2131175864
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131175863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 257018662}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2131175865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131175863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2131175866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131175863}
   m_CullTransparentMesh: 1
