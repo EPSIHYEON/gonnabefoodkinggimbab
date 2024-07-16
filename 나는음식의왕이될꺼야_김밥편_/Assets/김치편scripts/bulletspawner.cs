@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class bulletspawner : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class bulletspawner : MonoBehaviour
     public Transform[] spawnPoints; // 8개의 위치를 저장할 배열
     public float spawnInterval = 1f; // 총알이 생성되는 간격
     public float speed = 10f;
+    public Button restartButton;
+    public GameObject blackout;
     Rigidbody2D rb;
     void Start()
     {
@@ -15,14 +18,23 @@ public class bulletspawner : MonoBehaviour
 
 
         StartCoroutine(SpawnBullets());
+
+      
     }
 
     IEnumerator SpawnBullets()
     {
         while (true)
         {
-            SpawnBulletAtRandomPosition();
-            yield return new WaitForSeconds(spawnInterval);
+            if (!restartButton.gameObject.activeSelf && !blackout.gameObject.activeSelf)
+            {
+                SpawnBulletAtRandomPosition();
+                yield return new WaitForSeconds(spawnInterval);
+            }
+            else
+            {
+                yield break; // 코루틴을 즉시 종료합니다.
+            }
         }
     }
 

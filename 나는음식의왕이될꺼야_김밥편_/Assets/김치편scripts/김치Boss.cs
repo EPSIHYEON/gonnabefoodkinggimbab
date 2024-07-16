@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class 김치Boss : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class 김치Boss : MonoBehaviour
     public Transform player; // Player 게임 오브젝트의 Transform을 참조
     public float followDelay;
     public float smoothTime = 0.3f;
+    public GameObject blackout;
+    public Button restartButton;
     private Queue<float> playerPositions = new Queue<float>();
     private float velocity = 0.0f;
     // Start is called before the first frame update
@@ -46,11 +49,14 @@ public class 김치Boss : MonoBehaviour
     }
 
     IEnumerator ShootKbulletRoutine() {
-        
+        if (!restartButton.gameObject.activeSelf && !blackout.gameObject.activeSelf)
+        {
             shootKbullet();
 
             yield return new WaitForSeconds(1f);
-        StartCoroutine(ShootKbulletRoutine());
+            StartCoroutine(ShootKbulletRoutine());
+        }
+        else { yield break; }
 
     }
 

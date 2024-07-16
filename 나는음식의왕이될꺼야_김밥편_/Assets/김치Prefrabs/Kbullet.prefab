@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -759556625190561198}
   m_Layer: 6
   m_Name: Kbullet
-  m_TagString: Untagged
+  m_TagString: kbullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

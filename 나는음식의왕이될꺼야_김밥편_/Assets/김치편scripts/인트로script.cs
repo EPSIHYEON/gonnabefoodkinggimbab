@@ -4,68 +4,78 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ±èÄ¡Æíscript : MonoBehaviour
+public class ì¸íŠ¸ë¡œscript : MonoBehaviour
 {
-    public GameObject BlackOut;
     public Text dialogueText;
-    
     public Text nameText;// Reference to your UI Text component
+    public GameObject ê¹€ë°¥panel;
 
-    string first = "À½½ÄÀÇ ¿ÕÀÌ µÇ·¯ °¡º¼±î!! ";
-    string[] dialogues = { "Àá±ñ!!! ", 
-        "¾îµğ¼­ ¸Å ½Ä»ç¸¶´Ù ¾È³ª¿À´Â °ÍÀÌ À½½ÄÀÇ ¿ÕÀÌ µÇ·Á ÇŞ!!! ", "¹¹³Ä!! ³Êµµ À½½ÄÀÇ Áö¹èÀÚ°¡ µÇ°í ½ÍÀº°Å³Ä!! ",
-    "´ç¿¬ÇÏÁö!! ±èÄ¡ ¾øÀ¸¸é À½½ÄµéÀÌ ³Ñ¾î°¡±â³ª ÇØ???", "¾îµğ¿¡³ª ÀÖ¾î¾ßÇÏ´Â Á¸Àç°¡ ´ç¿¬È÷ Áö¹èÀÚÀÇ ÀÚÁú ¾Æ´Ï°Ú¾î? ","Å©À¹...¾îÂ¿ ¼ö ¾ø±º.... À½½Ä ¹èÆ²·Î ºÙÀÚ!!! ","Èï! ´ç¿¬È÷ ³ªÀÇ ½Â¸®Áş!!! "}; // Array of dialogues to display  //²À ½ºÆäÀÌ½º¸¦ ¸¶Áö¸·¿¡ ´­·¯ÁÖ¼¼¿ä
-    string[] namepanel = {  "???", "±èÄ¡","±è¹ä","±èÄ¡","±èÄ¡","±è¹ä","±èÄ¡"  };
+
+    string first = "ë–„ë¡œëŠ” 2004ë…„... ìŒì‹ì„ ë‹¤ìŠ¤ë¦¬ë˜ ëŒ€ì¥ê¸ˆê»˜ì„œ ëŒì•„ê°€ì‹œê³  ë§Œë‹¤.... ";
+    string[] dialogues = {  "ê¸‰ì‘ìŠ¤ëŸ½ê²Œ ëŒì•„ê°€ì‹  ëŒ€ì¥ê¸ˆê»˜ì„œëŠ”\nì°¨ê¸°ì˜ í›„ê³„ìë¥¼ ì„¤ì •í•˜ì‹œì§€ ëª»í•˜ê³ \nìŒì‹ì˜ ë‚˜ë¼ëŠ” í˜¼ë€ì— ë¹ ì§€ê³  ë§Œë‹¤. ",
+        "ê·¸ í˜¼ë€ì„ ì§€ì¼œë³´ë˜ ((((   ))))ì´ëŠ”... í˜¼ë€ì„ ë§‰ê³  ì‹¶ì—ˆë‹¤  ",
+    "ê·¸ëŠ”.... í˜¼ë€ì„ ë§‰ê³ ì... ","<size=25><<<<<</size><size=40>ì™•</size><size=25>>>>>ì´ ë˜ê³ ì í–ˆê³ , </size>" ,"ê¶ê¶ì¸ ë¶€ì—Œìœ¼ë¡œ í–¥í•˜ê²Œ ëœë‹¤ "}; // Array of dialogues to display  //ê¼­ ìŠ¤í˜ì´ìŠ¤ë¥¼ ë§ˆì§€ë§‰ì— ëˆŒëŸ¬ì£¼ì„¸ìš”
+    string[] namepanel = { "ê¹€ë°¥", "ê¹€ì¹˜", "ê¹€ë°¥", "ê¹€ì¹˜", "ê¹€ë°¥", "ê¹€ë°¥", "ê¹€ì¹˜", "ê¹€ì¹˜", "ê¹€ë°¥", "ê¹€ì¹˜", "ê¹€ë°¥", "ê¹€ë°¥", "ê¹€ì¹˜", "ê¹€ì¹˜" };
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
-   
-    int[] imageNumber = { 1, 1, 0,0,0,0, 0 };
 
-    
+    int[] imageNumber = { 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1 };
+
+
     private Coroutine typingCoroutine;
-
 
     void Start()
     {
 
-        firstshowImage();
-        firstshowName();
         firstShowDialogue();
         StartCoroutine(firsttyping(first));
     }
+
     void Update()
     {
         // Check if the mouse button is clicked
         if ((Input.GetKeyDown("space") && !isTyping) || Input.GetMouseButtonDown(0) && !isTyping)
         {
-            firstshowImage(false);
+           
 
             // Check if there are more dialogues to display
             if (currentDialogueIndex2 < dialogues.Length)
             {
-                showImage();
-                showName();
+               
                 ShowDialogue();
                 typingCoroutine = StartCoroutine(typing(dialogues[currentDialogueIndex2 - 1]));
-               
+
             }
 
 
             else
             {
-                BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+              
+                //Invoke("SetScene", 1f);
             }
         }
     }
 
 
-  
-    
-    
+    void firstShowDialogue()
+    {
+        // Get the next dialogue from the array
+        string currentDialogue = first;
+
+
+        // Update the text component with the current dialogue
+        dialogueText.text = currentDialogue;
+
+
+        // Move to the next dialogue in the array
+
+        Debug.Log("ë¬¸ì");
+    }
+
+
 
     void ShowDialogue()
     {
@@ -79,7 +89,7 @@ public class ±èÄ¡Æíscript : MonoBehaviour
 
         // Move to the next dialogue in the array
         currentDialogueIndex2++;
-        Debug.Log("¹®ÀÚ");
+        Debug.Log("ë¬¸ì");
     }
     void showName()
     {
@@ -88,7 +98,7 @@ public class ±èÄ¡Æíscript : MonoBehaviour
         nameText.text = currentname;
 
         currentDialogueIndex1++;
-        Debug.Log("¹®ÀÚ2");
+        Debug.Log("ë¬¸ì2");
     }
 
     void showImage()
@@ -114,37 +124,26 @@ public class ±èÄ¡Æíscript : MonoBehaviour
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
 
-            dialogueText.text = currentDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = currentDialogue.Substring(0, i); // í˜„ì¬ ì¸ë±ìŠ¤ê¹Œì§€ì˜ ë¬¸ìì—´ì„ í‘œì‹œ
 
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ì´ˆë§ˆë‹¤ í•œ ê¸€ìì”© í‘œì‹œ
 
-           
+
         }
         isTyping = false;
 
 
 
     }
-    void firstShowDialogue()
-    {
-        // Get the next dialogue from the array
-        string currentDialogue = first;
 
-
-        // Update the text component with the current dialogue
-        dialogueText.text = currentDialogue;
-
-
-      
-    }
     void firstshowName()
     {
-        string currentname = "±è¹ä";
+        string currentname = "ê¹€ì¹˜";
 
         nameText.text = currentname;
 
 
-      
+        Debug.Log("ë¬¸ì2");
     }
 
     void firstshowImage(bool active = true)
@@ -154,11 +153,11 @@ public class ±èÄ¡Æíscript : MonoBehaviour
 
         if (active)
         {
-            characterImage[0].gameObject.SetActive(true);
+            characterImage[1].gameObject.SetActive(true);
         }
         else
         {
-            characterImage[0].gameObject.SetActive(false);
+            characterImage[1].gameObject.SetActive(false);
         }
 
 
@@ -171,9 +170,9 @@ public class ±èÄ¡Æíscript : MonoBehaviour
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
 
-            dialogueText.text = firstDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = firstDialogue.Substring(0, i); // í˜„ì¬ ì¸ë±ìŠ¤ê¹Œì§€ì˜ ë¬¸ìì—´ì„ í‘œì‹œ
 
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ì´ˆë§ˆë‹¤ í•œ ê¸€ìì”© í‘œì‹œ
 
 
         }
@@ -183,12 +182,4 @@ public class ±èÄ¡Æíscript : MonoBehaviour
 
     }
 
-    void SetScene()
-        {
-            SceneManager.LoadScene("±èÄ¡2");
-        }
-    }
-
-
-
-    
+}
