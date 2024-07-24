@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class player김밥 : MonoBehaviour
 {
+    public AudioSource diesound;
     public int speed;
     public GameObject bullets;
     public bool active = true;
@@ -71,12 +72,13 @@ public class player김밥 : MonoBehaviour
             if (i < lifes.Length)
             {
                 Destroy(lifes[i]);
+                diesound.Play();
                 i++;
 
             }
             else
             {
-
+                diesound.Play();
                 active = false;
                 restartButton.gameObject.SetActive(true);
 

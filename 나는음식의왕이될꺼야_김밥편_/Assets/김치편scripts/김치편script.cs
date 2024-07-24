@@ -9,6 +9,7 @@ public class 김치편script : MonoBehaviour
     public GameObject BlackOut;
     public Text dialogueText;
     
+
     public Text nameText;// Reference to your UI Text component
 
     string first = "음식의 왕이 되러 가볼까!! ";
@@ -22,7 +23,7 @@ public class 김치편script : MonoBehaviour
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
    
-    int[] imageNumber = { 1, 1, 0,0,0,0, 0 };
+    int[] imageNumber = { 1, 1, 0,0,0,1, 1 };
 
     
     private Coroutine typingCoroutine;
@@ -30,8 +31,9 @@ public class 김치편script : MonoBehaviour
 
     void Start()
     {
+      
 
-        firstshowImage();
+            firstshowImage();
         firstshowName();
         firstShowDialogue();
         StartCoroutine(firsttyping(first));
@@ -111,12 +113,14 @@ public class 김치편script : MonoBehaviour
     IEnumerator typing(string currentDialogue)
     {
         isTyping = true;
+
+
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
 
             dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
-            yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
+                yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
 
            
         }
