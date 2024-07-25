@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class 김치편script2 : MonoBehaviour
 {
     public GameObject BlackOut;
-
+    public GameObject BlackMove;
     
     public Text dialogueText;
 
@@ -32,7 +32,7 @@ public class 김치편script2 : MonoBehaviour
 
      void Start()
     {
-
+        BlackMove.SetActive(true);
         firstshowImage();
         firstshowName();
         firstShowDialogue();

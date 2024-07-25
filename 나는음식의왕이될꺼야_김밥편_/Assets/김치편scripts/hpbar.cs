@@ -15,6 +15,7 @@ public class hpbar : MonoBehaviour
     public GameObject player;
     public GameObject ±èÄ¡Boss;
     public GameObject kbullet;
+    public AudioSource laser;
     
    
     private Animator hpbarAnimator;
@@ -37,6 +38,7 @@ public class hpbar : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        laser.Play();
         currentHealth -= damageAmount;
         UpdateHealthUI();
         hpbarAnimator.SetTrigger("hpmove");

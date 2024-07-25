@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class 김치편script : MonoBehaviour
-{
+{   public GameObject BlackMove;
     public GameObject BlackOut;
     public Text dialogueText;
+    public AudioSource scriptSound;
     
 
     public Text nameText;// Reference to your UI Text component
@@ -31,8 +32,8 @@ public class 김치편script : MonoBehaviour
 
     void Start()
     {
-      
 
+        BlackMove.SetActive(true);
             firstshowImage();
         firstshowName();
         firstShowDialogue();
@@ -117,12 +118,14 @@ public class 김치편script : MonoBehaviour
 
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
+            //scriptSound.Play();
 
             dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
+            
+            yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
+        
+            
 
-                yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
-
-           
         }
         isTyping = false;
 
@@ -174,11 +177,11 @@ public class 김치편script : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
-
+            
             dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
-
+            //scriptSound.Play();
             yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
-
+           
 
         }
         isTyping = false;
