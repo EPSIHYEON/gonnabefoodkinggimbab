@@ -20,13 +20,35 @@ public class JY_Script : MonoBehaviour
  
     public GameObject BlackOut;
     private Coroutine typingCoroutine;
+    private bool isTyping = false;
 
     void Update()
     {
         // Check if the mouse button is clicked
         if (Input.GetMouseButtonDown(0))
         {
-
+            if (isTyping)
+            {   
+                // Skip to the end of the current dialogue
+                StopCoroutine(typingCoroutine);
+                ShowNextDialogue();
+                isTyping = false;
+            }
+            else
+            {
+                // Check if there are more dialogues to display
+                if (currentDialogueIndex2 < dialogues.Length)
+                {
+                    ShowNextDialogue();
+                }
+                else
+                {
+                    BlackOut.SetActive(true);
+                    Invoke("SetScene", 1f);
+                }
+            }
+        }
+            /*
             // Check if there are more dialogues to display
             if (currentDialogueIndex2 < dialogues.Length)
             {
@@ -44,24 +66,25 @@ public class JY_Script : MonoBehaviour
                 BlackOut.SetActive(true);
                 Invoke("SetScene", 1f);
             }
-        }
+        }*/
     }
 
-    void ShowDialogue()
+    void ShowNextDialogue()
     {
-        // Get the next dialogue from the array
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        showImage();
+        showName();
+
         string currentDialogue = dialogues[currentDialogueIndex2];
-
-
-        // Update the text component with the current dialogue
-        dialogueText.text = currentDialogue;
-
-
-        // Move to the next dialogue in the array
+        typingCoroutine = StartCoroutine(_typing(currentDialogue));
         currentDialogueIndex2++;
-        Debug.Log("문자");
     }
-void showName() {
+
+    
+    void showName() {
         string currentname = namepanel[currentDialogueIndex1];
 
         nameText.text = currentname;
@@ -79,13 +102,25 @@ void showName() {
 
             }
             characterImage[imageNumber[exnumber]].gameObject.SetActive(true);
-                Debug.Log("Showing image at index: " + imageNumber[exnumber]);
+            Debug.Log("Showing image at index: " + imageNumber[exnumber]);
             exnumber++;
 
+    }
+
+    IEnumerator _typing(string currentDialogue)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+        for (int i = 0; i < currentDialogue.Length; i++)
+        {
+            dialogueText.text = currentDialogue.Substring(0, i+1);
+            yield return new WaitForSeconds(0.15f);
         }
+        isTyping = false;
+    }
 
 
-
+/*
     IEnumerator _typing(string currentDialogue)
     {
          for (int i = 0; i < currentDialogue.Length; i++)
@@ -101,7 +136,7 @@ void showName() {
 
 
     }
-
+*/
     void SetScene()
     {
         SceneManager.LoadScene("제육2");
