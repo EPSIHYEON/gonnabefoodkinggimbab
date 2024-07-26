@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4541141136076016314}
   - component: {fileID: 2996706385464022208}
   - component: {fileID: -4432934220083100685}
+  - component: {fileID: 9207619608619674069}
+  - component: {fileID: 1553486314786064876}
   m_Layer: 6
   m_Name: Pbullet
   m_TagString: Untagged
@@ -106,3 +108,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9207619608619674069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681280271432166867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be807993b997a2e458a2fc0b1737e04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1553486314786064876
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681280271432166867}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
