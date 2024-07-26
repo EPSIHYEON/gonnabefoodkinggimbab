@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ±èÄ¡Æíscript : MonoBehaviour
+public class ê¹€ì¹˜í¸script : MonoBehaviour
 {   public GameObject BlackMove;
     public GameObject BlackOut;
     public Text dialogueText;
@@ -13,11 +13,12 @@ public class ±èÄ¡Æíscript : MonoBehaviour
 
     public Text nameText;// Reference to your UI Text component
 
-    string first = "À½½ÄÀÇ ¿ÕÀÌ µÇ·¯ °¡º¼±î!! ";
-    string[] dialogues = { "Àá±ñ!!! ", 
-        "¾îµğ¼­ ¸Å ½Ä»ç¸¶´Ù ¾È³ª¿À´Â °ÍÀÌ À½½ÄÀÇ ¿ÕÀÌ µÇ·Á ÇŞ!!! ", "¹¹³Ä!! ³Êµµ À½½ÄÀÇ Áö¹èÀÚ°¡ µÇ°í ½ÍÀº°Å³Ä!! ",
-    "´ç¿¬ÇÏÁö!! ±èÄ¡ ¾øÀ¸¸é À½½ÄµéÀÌ ³Ñ¾î°¡±â³ª ÇØ???", "¾îµğ¿¡³ª ÀÖ¾î¾ßÇÏ´Â Á¸Àç°¡ ´ç¿¬È÷ Áö¹èÀÚÀÇ ÀÚÁú ¾Æ´Ï°Ú¾î? ","Å©À¹...¾îÂ¿ ¼ö ¾ø±º.... À½½Ä ¹èÆ²·Î ºÙÀÚ!!! ","Èï! ´ç¿¬È÷ ³ªÀÇ ½Â¸®Áş!!! "}; // Array of dialogues to display  //²À ½ºÆäÀÌ½º¸¦ ¸¶Áö¸·¿¡ ´­·¯ÁÖ¼¼¿ä
-    string[] namepanel = {  "???", "±èÄ¡","±è¹ä","±èÄ¡","±èÄ¡","±è¹ä","±èÄ¡"  };
+    string first = "ìŒì‹ì˜ ì™•ì´ ë˜ëŸ¬ ê°€ë³¼ê¹Œ!! ";
+    string[] dialogues = { "ì ê¹!!! ", 
+        "ì–´ë””ì„œ ë§¤ ì‹ì‚¬ë§ˆë‹¤ ì•ˆë‚˜ì˜¤ëŠ” ê²ƒì´ ìŒì‹ì˜ ì™•ì´ ë˜ë ¤ í–‡!!! ", "ë­ëƒ!! ë„ˆë„ ìŒì‹ì˜ ì§€ë°°ìê°€ ë˜ê³  ì‹¶ì€ê±°ëƒ!! ",
+    "ë‹¹ì—°í•˜ì§€!! ê¹€ì¹˜ ì—†ìœ¼ë©´ ìŒì‹ë“¤ì´ ë„˜ì–´ê°€ê¸°ë‚˜ í•´???", "ì–´ë””ì—ë‚˜ ìˆì–´ì•¼í•˜ëŠ” ì¡´ì¬ê°€ ë‹¹ì—°íˆ ì§€ë°°ìì˜ ìì§ˆ ì•„ë‹ˆê² ì–´? ","í¬ìœ½...ì–´ì©” ìˆ˜ ì—†êµ°.... ìŒì‹ ë°°í‹€ë¡œ ë¶™ì!!! ","í¥! ë‹¹ì—°íˆ ë‚˜ì˜ ìŠ¹ë¦¬ì§“!!! "}; // Array of dialogues to display  //ê¼­ ìŠ¤í˜ì´ìŠ¤ë¥¼ ë§ˆì§€ë§‰ì— ëˆŒëŸ¬ì£¼ì„¸ìš”
+    string[] namepanel = {  "???", "ê¹€ì¹˜","ê¹€ë°¥","ê¹€ì¹˜","ê¹€ì¹˜","ê¹€ë°¥","ê¹€ì¹˜"  };
+   
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
@@ -82,7 +83,7 @@ public class ±èÄ¡Æíscript : MonoBehaviour
 
         // Move to the next dialogue in the array
         currentDialogueIndex2++;
-        Debug.Log("¹®ÀÚ");
+        Debug.Log("ë¬¸ì");
     }
     void showName()
     {
@@ -91,7 +92,7 @@ public class ±èÄ¡Æíscript : MonoBehaviour
         nameText.text = currentname;
 
         currentDialogueIndex1++;
-        Debug.Log("¹®ÀÚ2");
+        Debug.Log("ë¬¸ì2");
     }
 
     void showImage()
@@ -120,9 +121,9 @@ public class ±èÄ¡Æíscript : MonoBehaviour
         {
             //scriptSound.Play();
 
-            dialogueText.text = currentDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = currentDialogue.Substring(0, i); // ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
             
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ï¿½Ê¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¾ï¿½ Ç¥ï¿½ï¿½
         
             
 
@@ -146,7 +147,7 @@ public class ±èÄ¡Æíscript : MonoBehaviour
     }
     void firstshowName()
     {
-        string currentname = "±è¹ä";
+        string currentname = "ï¿½ï¿½ï¿½";
 
         nameText.text = currentname;
 
@@ -178,9 +179,9 @@ public class ±èÄ¡Æíscript : MonoBehaviour
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
             
-            dialogueText.text = firstDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = firstDialogue.Substring(0, i); // ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
             //scriptSound.Play();
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ï¿½Ê¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¾ï¿½ Ç¥ï¿½ï¿½
            
 
         }
@@ -192,7 +193,7 @@ public class ±èÄ¡Æíscript : MonoBehaviour
 
     void SetScene()
         {
-            SceneManager.LoadScene("±èÄ¡2");
+            SceneManager.LoadScene("ï¿½ï¿½Ä¡2");
         }
     }
 
