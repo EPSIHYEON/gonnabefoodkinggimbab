@@ -118,10 +118,15 @@ public class 김치편script : MonoBehaviour
 
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
-            //scriptSound.Play();
-
-            dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
             
+                scriptSound.Play();
+
+                dialogueText.text = currentDialogue.Substring(0, i);
+            // 현재 인덱스까지의 문자열을 표시
+
+          
+
+
             yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
         
             
