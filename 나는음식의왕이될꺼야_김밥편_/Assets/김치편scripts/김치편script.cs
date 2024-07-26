@@ -18,7 +18,6 @@ public class 김치편script : MonoBehaviour
         "어디서 매 식사마다 안나오는 것이 음식의 왕이 되려 햇!!! ", "뭐냐!! 너도 음식의 지배자가 되고 싶은거냐!! ",
     "당연하지!! 김치 없으면 음식들이 넘어가기나 해???", "어디에나 있어야하는 존재가 당연히 지배자의 자질 아니겠어? ","크윽...어쩔 수 없군.... 음식 배틀로 붙자!!! ","흥! 당연히 나의 승리짓!!! "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
     string[] namepanel = {  "???", "김치","김밥","김치","김치","김밥","김치"  };
-   
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
@@ -29,6 +28,7 @@ public class 김치편script : MonoBehaviour
 
     
     private Coroutine typingCoroutine;
+
 
 
     void Start()
@@ -111,19 +111,23 @@ public class 김치편script : MonoBehaviour
     }
 
 
-
-    IEnumerator typing(string currentDialogue)
+IEnumerator typing(string currentDialogue)
     {
         isTyping = true;
 
 
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
-            //scriptSound.Play();
-
-            dialogueText.text = currentDialogue.Substring(0, i); // ���� �ε��������� ���ڿ��� ǥ��
             
-            yield return new WaitForSeconds(0.05f); // 0.05�ʸ��� �� ���ھ� ǥ��
+                scriptSound.Play();
+
+                dialogueText.text = currentDialogue.Substring(0, i);
+            // 현재 인덱스까지의 문자열을 표시
+
+          
+
+
+            yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
         
             
 
@@ -147,7 +151,7 @@ public class 김치편script : MonoBehaviour
     }
     void firstshowName()
     {
-        string currentname = "���";
+        string currentname = "김밥";
 
         nameText.text = currentname;
 
@@ -172,16 +176,15 @@ public class 김치편script : MonoBehaviour
 
     }
 
-
     IEnumerator firsttyping(string firstDialogue)
     {
         isTyping = true;
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
             
-            dialogueText.text = firstDialogue.Substring(0, i); // ���� �ε��������� ���ڿ��� ǥ��
+            dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
             //scriptSound.Play();
-            yield return new WaitForSeconds(0.05f); // 0.05�ʸ��� �� ���ھ� ǥ��
+            yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
            
 
         }
@@ -190,10 +193,13 @@ public class 김치편script : MonoBehaviour
 
 
     }
+    
+
+    
 
     void SetScene()
         {
-            SceneManager.LoadScene("��ġ2");
+            SceneManager.LoadScene("김치2");
         }
     }
 
