@@ -1,27 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public AudioSource diesound;
     public int speed;
     public GameObject bullets;
-    Rigidbody2D rigid;
+    public bool active = true;
+    public Button restartButton;
+    public Image[] lifes;
+    private int i = 0;
 
+    Rigidbody2D rigid;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        active = true;
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        move();
-
-        if (Input.GetButtonDown("Fire1"))
+        if (active == true)
         {
-            shoot();
+            move();
+
+            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
+            {
+                shoot();
+            }
         }
 
     }
@@ -39,6 +52,34 @@ public class Player : MonoBehaviour
     {
         Instantiate(bullets, transform.position, transform.rotation);
         Debug.Log("발사되고 있음");
+    }
+
+
+    public void Restart()
+    {
+        Debug.Log("재시작");
+
+        SceneManager.LoadScene("제육2");
+
+        active = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "jbullet")
+        {
+            if (i < lifes.Length)
+            {
+                Destroy(lifes[i]);
+                diesound.Play();
+                i++;
+            }
+            else{
+                diesound.Play();
+                active = false;
+                restartButton.gameObject.SetActive(true);
+            }
+        }
     }
 
 

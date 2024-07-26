@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    Rigidbody2D rigidbullet;
+    Rigidbody2D rigitbullet;
 
-     void Start()
+    void Start()
     {
         rigidbullet = GetComponent<Rigidbody2D>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         straight();
     }
+    
     void straight() {
         rigidbullet.velocity = transform.up * 10;
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +27,4 @@ public class P_Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    
 }
