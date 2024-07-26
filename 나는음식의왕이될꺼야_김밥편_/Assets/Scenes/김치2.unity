@@ -1705,7 +1705,7 @@ MonoBehaviour:
   healthSlider: {fileID: 179515589}
   blackout: {fileID: 414292507}
   player: {fileID: 1175784763}
-  "\uAE40\uCE58Boss": {fileID: 736553196}
+  KBoss: {fileID: 736553196}
   kbullet: {fileID: 4608017001187168859, guid: 4dbde3c27b01d99499e413c453a17a1d, type: 3}
   laser: {fileID: 533484109}
 --- !u!1 &826087210

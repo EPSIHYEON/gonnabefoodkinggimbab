@@ -13,7 +13,7 @@ public class hpbar : MonoBehaviour
     public Slider healthSlider;
     public GameObject blackout;
     public GameObject player;
-    public GameObject ±èÄ¡Boss;
+    public GameObject KBoss;
     public GameObject kbullet;
     public AudioSource laser;
     
@@ -53,7 +53,7 @@ public class hpbar : MonoBehaviour
     {
         
         player.SetActive(false);
-        ±èÄ¡Boss.SetActive(false);
+        KBoss.SetActive(false);
        
         blackout.SetActive(true);
         Invoke("SetScene", 3f);
