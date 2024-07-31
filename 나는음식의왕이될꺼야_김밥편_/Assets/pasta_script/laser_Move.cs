@@ -10,6 +10,7 @@ public class laser_Move : MonoBehaviour
     public float laserWidth = 1f; // 레이저의 두께
     public LineRenderer lineRenderer; // 레이저의 LineRenderer 컴포넌트
     public Color lineColor = new Color(1f, 1f, 1f, 0.5f); // 흰색, 불투명도 0.5
+    public Transform[] spawnpoints;
 
 
 

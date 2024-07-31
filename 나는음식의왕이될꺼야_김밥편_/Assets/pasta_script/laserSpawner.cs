@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class laserSpawner : MonoBehaviour
 {
-    public GameObject bulletPrefab; // 총알 프리팹
-    public GameObject laser;
+    public Slider healthSlider;
+    public GameObject bulletPrefab;
+    public GameObject bulletPrefab2; // 총알 프리팹
+    public GameObject[] laser;
     public Transform[] spawnPoints; // 8개의 위치를 저장할 배열
     public float spawnInterval = 1f; // 총알이 생성되는 간격
     public float speed = 10f;
     public Button restartButton;
     public GameObject blackout;
+    public AudioSource laserout;
+    public AudioSource boom;
     Rigidbody2D rb;
+    
+    private int previousIndex = -1;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,32 +46,138 @@ public class laserSpawner : MonoBehaviour
 
     void SpawnBulletAtRandomPosition()
     {
-        int randomIndex = Random.Range(0, spawnPoints.Length);
+
+        int randomIndex;
+
+        if (healthSlider.value >= 80) {
+            randomIndex = GetRandomIndexExcludingPrevious2();
+        }
+        else { randomIndex = GetRandomIndexExcludingPrevious1(); }
+        previousIndex = randomIndex;
         Transform spawnPoint = spawnPoints[randomIndex];
 
-        GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
-        //GameObject laserr = Instantiate(laser, spawnPoint.position, spawnPoint.rotation);
+        GameObject bullet;
+        Rigidbody2D rb;
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (randomIndex >= 0 && randomIndex < 9)
+        {
+            bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        else
+        {
+            bullet = Instantiate(bulletPrefab2, spawnPoint.position, spawnPoint.rotation);
+        }
+
+        rb = bullet.GetComponent<Rigidbody2D>();
+
+
         //Rigidbody2D rb2 = laserr.GetComponent<Rigidbody2D>();
 
-        if (rb != null)
-        {
-            if (randomIndex == 0 || randomIndex == 1 || randomIndex == 2)
+
+
+        if (randomIndex == 0 || randomIndex == 1 || randomIndex == 2)
             {
-                rb.velocity = new Vector2(0, -1).normalized * speed;
-                
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(0, -1).normalized * speed, randomIndex));
+
             }
             else if (randomIndex == 3 || randomIndex == 4)
             {
-                rb.velocity = new Vector2(5, -3).normalized * speed;
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(5, -5).normalized * speed, randomIndex));
 
             }
             // 나머지 경우에 대한 속도 설정 추가 가능
             else if (randomIndex == 5 || randomIndex == 6)
             {
-                rb.velocity = new Vector2(-5, -3).normalized * speed;
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(-5, -5).normalized * speed, randomIndex));
             }
+
+            else if (randomIndex == 7)
+            {
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(5, -1).normalized * speed, randomIndex));
+            }
+
+            else if (randomIndex == 8)
+            {
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(-5, -1).normalized * speed, randomIndex));
+            }
+
+            else if (randomIndex == 9) //2
+            {
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(0, -1).normalized * speed, randomIndex));
+            }
+
+            else if (randomIndex == 10) //3
+            {
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(5, -5).normalized * speed, randomIndex));
+            }
+
+            else if (randomIndex == 11) //6
+            {
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(-5, -5).normalized * speed, randomIndex));
+            }
+
+            else if (randomIndex == 12) //8
+            {
+                ActivateLaser(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(-5, -1).normalized * speed, randomIndex));
+            }
+        
+
+       
+    }
+
+    int GetRandomIndexExcludingPrevious1()
+    {
+        int newIndex;
+        do
+        {
+            newIndex = Random.Range(0, 9);
+        } while (newIndex == previousIndex);
+        return newIndex;
+    }
+
+    int GetRandomIndexExcludingPrevious2()
+    {
+        int newIndex;
+        do
+        {
+            newIndex = Random.Range(5, spawnPoints.Length);
+        } while (newIndex == previousIndex);
+        return newIndex;
+    }
+
+
+    void ActivateLaser(int index)
+    {
+        if (index >= 0 && index < laser.Length)
+        {
+            laser[index].SetActive(true);
+            laserout.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"Index {index} is out of bounds for lasers array");
         }
     }
+
+    IEnumerator Delay(Rigidbody2D rb, Vector2 velocity, int index)
+    {
+        yield return new WaitForSeconds(1.5f); // 3초 대기
+        if (index >= 0 && index < laser.Length)
+        {
+            laser[index].SetActive(false);
+        }
+        boom.Play();
+        rb.velocity = velocity;
+    }
 }
+
+
