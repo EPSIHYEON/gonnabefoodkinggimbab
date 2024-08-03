@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class pasta_hpbar : MonoBehaviour
 {
-    public int maxHealth = 100;
+    private int maxHealth = 400;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject blackout;
     public GameObject player;
-    public GameObject KBoss;
-    public GameObject kbullet;
+    public GameObject PBoss;
+
     public AudioSource laser;
 
 
@@ -20,6 +20,7 @@ public class pasta_hpbar : MonoBehaviour
 
     void Start()
     {
+       
         hpbarAnimator = GameObject.Find("hpbar").GetComponent<Animator>();
         currentHealth = maxHealth;
         UpdateHealthUI();
@@ -52,7 +53,7 @@ public class pasta_hpbar : MonoBehaviour
     {
 
         player.SetActive(false);
-        KBoss.SetActive(false);
+        PBoss.SetActive(false);
 
         blackout.SetActive(true);
         Invoke("SetScene", 3f);

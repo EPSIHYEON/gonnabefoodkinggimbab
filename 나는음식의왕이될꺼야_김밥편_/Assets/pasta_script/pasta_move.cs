@@ -6,12 +6,21 @@ using UnityEngine;
 public class pasta_move : MonoBehaviour
 {
    public  Transform[] P_position;
+    public GameObject panel;
+    private bool active = true;
 
 
 
     void Start()
     {
-        StartCoroutine(RandomMove());
+        if (active == true && !panel.activeSelf)
+        {
+            StartCoroutine(RandomMove());
+        }
+
+        if (panel.activeSelf) {
+            active = false;
+        }
     }
 
 
@@ -27,7 +36,7 @@ public class pasta_move : MonoBehaviour
 
 
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(RandomMove());
 

@@ -82,6 +82,7 @@ public class player김밥 : MonoBehaviour
         {
             if (i < lifes.Length)
             {
+                Destroy(collision.gameObject);
                 Destroy(lifes[i]);
                 diesound.Play();
                 i++;

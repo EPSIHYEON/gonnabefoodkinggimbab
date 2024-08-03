@@ -9,7 +9,7 @@ public class Kbullet : MonoBehaviour
         if (collision.CompareTag("Border"))
         {
 
-            Destroy(gameObject); // 
+            Destroy(gameObject); 
 
         }
 

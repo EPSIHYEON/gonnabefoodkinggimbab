@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class laserSpawner : MonoBehaviour
 {
     public Slider healthSlider;
+    public GameObject Panel;
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2; // 총알 프리팹
     public GameObject[] laser;
@@ -15,7 +16,10 @@ public class laserSpawner : MonoBehaviour
     public Button restartButton;
     public GameObject blackout;
     public AudioSource laserout;
+    public AudioSource laserout2;
     public AudioSource boom;
+    private bool active = true;
+    
     Rigidbody2D rb;
     
     private int previousIndex = -1;
@@ -32,7 +36,7 @@ public class laserSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (!restartButton.gameObject.activeSelf && !blackout.gameObject.activeSelf)
+            if (!restartButton.gameObject.activeSelf && !blackout.gameObject.activeSelf && active == true)
             {
                 SpawnBulletAtRandomPosition();
                 yield return new WaitForSeconds(spawnInterval);
@@ -49,10 +53,11 @@ public class laserSpawner : MonoBehaviour
 
         int randomIndex;
 
-        if (healthSlider.value >= 80) {
+        if (healthSlider.value < 0.8) {
             randomIndex = GetRandomIndexExcludingPrevious2();
+            Debug.Log("2페이지 입니다");
         }
-        else { randomIndex = GetRandomIndexExcludingPrevious1(); }
+        else { randomIndex = GetRandomIndexExcludingPrevious1(); Debug.Log("1페이지 입니다"); }
         previousIndex = randomIndex;
         Transform spawnPoint = spawnPoints[randomIndex];
 
@@ -81,20 +86,32 @@ public class laserSpawner : MonoBehaviour
                 StartCoroutine(Delay(rb, new Vector2(0, -1).normalized * speed, randomIndex));
 
             }
-            else if (randomIndex == 3 || randomIndex == 4)
+            else if (randomIndex == 3 )
             {
                 ActivateLaser(randomIndex);
-                StartCoroutine(Delay(rb, new Vector2(5, -5).normalized * speed, randomIndex));
+                StartCoroutine(Delay(rb, new Vector2(5, -1).normalized * speed, randomIndex));
 
             }
-            // 나머지 경우에 대한 속도 설정 추가 가능
-            else if (randomIndex == 5 || randomIndex == 6)
+             else if ( randomIndex == 4)
+             {
+            ActivateLaser(randomIndex);
+            StartCoroutine(Delay(rb, new Vector2(5, -5).normalized * speed, randomIndex));
+
+               }
+        // 나머지 경우에 대한 속도 설정 추가 가능
+        else if (randomIndex == 5 )
             {
                 ActivateLaser(randomIndex);
                 StartCoroutine(Delay(rb, new Vector2(-5, -5).normalized * speed, randomIndex));
             }
 
-            else if (randomIndex == 7)
+            else if (randomIndex == 6)
+             {
+            ActivateLaser(randomIndex);
+            StartCoroutine(Delay(rb, new Vector2(-5, -1).normalized * speed, randomIndex));
+              }
+
+        else if (randomIndex == 7)
             {
                 ActivateLaser(randomIndex);
                 StartCoroutine(Delay(rb, new Vector2(5, -1).normalized * speed, randomIndex));
@@ -108,27 +125,38 @@ public class laserSpawner : MonoBehaviour
 
             else if (randomIndex == 9) //2
             {
-                ActivateLaser(randomIndex);
+                ActivateLaser2(randomIndex);
                 StartCoroutine(Delay(rb, new Vector2(0, -1).normalized * speed, randomIndex));
             }
 
             else if (randomIndex == 10) //3
             {
-                ActivateLaser(randomIndex);
-                StartCoroutine(Delay(rb, new Vector2(5, -5).normalized * speed, randomIndex));
+                ActivateLaser2(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(5, -3).normalized * speed, randomIndex));
             }
 
             else if (randomIndex == 11) //6
             {
-                ActivateLaser(randomIndex);
-                StartCoroutine(Delay(rb, new Vector2(-5, -5).normalized * speed, randomIndex));
+                ActivateLaser2(randomIndex);
+                StartCoroutine(Delay(rb, new Vector2(-5, -3).normalized * speed, randomIndex));
             }
 
             else if (randomIndex == 12) //8
             {
-                ActivateLaser(randomIndex);
+                ActivateLaser2(randomIndex);
                 StartCoroutine(Delay(rb, new Vector2(-5, -1).normalized * speed, randomIndex));
             }
+
+        if (healthSlider.value < 0.8)
+        {
+            active = false;
+            Panel.SetActive(true);
+
+            if (!Panel.activeSelf) {
+                active = true;
+            }
+        
+        }
         
 
        
@@ -149,7 +177,7 @@ public class laserSpawner : MonoBehaviour
         int newIndex;
         do
         {
-            newIndex = Random.Range(5, spawnPoints.Length);
+            newIndex = Random.Range(7, spawnPoints.Length);
         } while (newIndex == previousIndex);
         return newIndex;
     }
@@ -168,9 +196,22 @@ public class laserSpawner : MonoBehaviour
         }
     }
 
+    void ActivateLaser2(int index)
+    {
+        if (index >= 0 && index < laser.Length)
+        {
+            laser[index].SetActive(true);
+            laserout2.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"Index {index} is out of bounds for lasers array");
+        }
+    }
+
     IEnumerator Delay(Rigidbody2D rb, Vector2 velocity, int index)
     {
-        yield return new WaitForSeconds(1.5f); // 3초 대기
+        yield return new WaitForSeconds(1.5f); 
         if (index >= 0 && index < laser.Length)
         {
             laser[index].SetActive(false);
