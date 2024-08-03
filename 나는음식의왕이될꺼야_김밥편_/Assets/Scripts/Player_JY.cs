@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Player_JY : MonoBehaviour
 {
     public AudioSource diesound;
     public int speed;

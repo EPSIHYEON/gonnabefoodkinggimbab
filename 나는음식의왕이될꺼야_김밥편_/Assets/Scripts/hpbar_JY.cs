@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class hpbar : MonoBehaviour
+public class hpbar_JY : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject blackout;
     public GameObject player;
-    public GameObject JBoss;
-    public GameObject Jbullet;
+    public GameObject kBoss;
+    public GameObject kbullet;
     public AudioSource laser;
+    
 
 
     private Animator hpbarAnimator;
@@ -46,21 +47,25 @@ public class hpbar : MonoBehaviour
         if (healthSlider.value == 0) {
             BossDie();
         }
-    }
 
+    }
 
     void BossDie()
     {
+        
         player.SetActive(false);
-        JBoss.SetActive(false);
-
+        kBoss.SetActive(false);
+       
         blackout.SetActive(true);
         Invoke("SetScene", 3f);
+
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+       
         Debug.Log("Collision detected with " + collision.gameObject.name);
         if (collision.gameObject.tag == "playerbullet")
         {
@@ -68,12 +73,15 @@ public class hpbar : MonoBehaviour
 
             Destroy(collision.gameObject);
             TakeDamage(10);
+
+
         }
+
+        
     }
 
     void SetScene()
     {
         SceneManager.LoadScene("제육3");
     }
-
 }

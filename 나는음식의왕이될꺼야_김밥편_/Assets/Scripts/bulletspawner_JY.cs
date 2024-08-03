@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class bulletspawner : MonoBehaviour
+public class bulletspawner_JY : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform[] spawnPoints; // 8개의 위치를 저장할 배열
@@ -58,7 +58,7 @@ public class bulletspawner : MonoBehaviour
             }
             else if (randomIndex == 5 || randomIndex == 6 )
             {
-                rb.velocity = new Vecotr2(-5, -3).normalized * speed;
+                rb.velocity = new Vector2(-5, -3).normalized * speed;
             }
         }
     }
