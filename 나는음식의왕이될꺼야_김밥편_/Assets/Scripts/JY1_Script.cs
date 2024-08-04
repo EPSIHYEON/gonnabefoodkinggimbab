@@ -173,6 +173,6 @@ public class JY1_Script : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("제육2");
+        SceneManager.LoadScene("JY2");
     }
 }
