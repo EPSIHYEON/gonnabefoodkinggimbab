@@ -40,8 +40,8 @@ public class bulletspawner_JY : MonoBehaviour
 
     void SpawnBulletAtRandomPosition()
     {
-        int randomIndex = randomIndex.Range(0, spawnPoints.Length);
-        Transform spawnPoint = spawnPoint[randomIndex];
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        Transform spawnPoint = spawnPoints[randomIndex];
 
         GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

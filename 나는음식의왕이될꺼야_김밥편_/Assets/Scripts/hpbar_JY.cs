@@ -21,7 +21,7 @@ public class hpbar_JY : MonoBehaviour
 
     void Start()
     {
-        hpbarAnimator = GameObject.Find("hpbar").GetComponent<hpbarAnimator>();
+        hpbarAnimator = GameObject.Find("hpbar").GetComponent<Animator>();
         currentHealth = maxHealth;
         UpdateHealthUI();
     }

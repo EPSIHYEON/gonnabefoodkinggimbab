@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet_JY : MonoBehaviour
 {
-    Rigidbody2D rigitbullet;
+    Rigidbody2D rigidbullet;
 
     void Start()
     {
