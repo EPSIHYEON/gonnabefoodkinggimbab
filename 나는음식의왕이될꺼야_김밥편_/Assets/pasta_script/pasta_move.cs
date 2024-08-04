@@ -8,6 +8,7 @@ public class pasta_move : MonoBehaviour
    public  Transform[] P_position;
     public GameObject panel;
     private bool active = true;
+    private int previousIndex = -1;
 
 
 
@@ -24,12 +25,15 @@ public class pasta_move : MonoBehaviour
     }
 
 
+    
+
+
 
 
 
     IEnumerator RandomMove()
     {
-        int randomIndex = Random.Range(0, P_position.Length);
+        int randomIndex = GetRandomIndexExcludingPrevious1();
         Transform spawnPoint = P_position[randomIndex];
 
         gameObject.transform.position = spawnPoint.position;
@@ -42,5 +46,15 @@ public class pasta_move : MonoBehaviour
 
 
 
+    }
+
+    int GetRandomIndexExcludingPrevious1()
+    {
+        int newIndex;
+        do
+        {
+            newIndex = Random.Range(0, P_position.Length);
+        } while (newIndex == previousIndex);
+        return newIndex;
     }
 }

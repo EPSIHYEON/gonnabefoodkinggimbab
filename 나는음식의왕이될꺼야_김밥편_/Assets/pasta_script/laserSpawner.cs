@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class laserSpawner : MonoBehaviour
 {
     public Slider healthSlider;
+    public GameObject giantlaser;
     public GameObject Panel;
+    public GameObject babBullet;
+    public GameObject PBoss;
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2; // 총알 프리팹
     public GameObject[] laser;
@@ -18,19 +21,58 @@ public class laserSpawner : MonoBehaviour
     public AudioSource laserout;
     public AudioSource laserout2;
     public AudioSource boom;
+    public AudioSource Timer;
+    public AudioSource GiantLaserSound;
+
     private bool active = true;
-    
+    private Coroutine spawnCoroutine;
+
+
+
     Rigidbody2D rb;
     
     private int previousIndex = -1;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spawnCoroutine = StartCoroutine(SpawnBullets());
+        babBullet.SetActive(true);
 
-        StartCoroutine(SpawnBullets());
 
 
     }
+
+   void Update()
+    {
+        if (healthSlider.value <= 0.3f)
+        {
+            PBoss.SetActive(false);
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine); // Coroutine 객체를 참조하여 중지
+                spawnCoroutine = null; // Coroutine 참조를 초기화
+                Debug.Log("healthSlider가 0.3 이하입니다! 코루틴 중지됨.");
+                Invoke("GiantLaser",4f);
+                Invoke("createPanel", 10f);
+            }
+        }
+    }
+
+    void GiantLaser() {
+        
+        giantlaser.SetActive(true);
+        GiantLaserSound.Play();
+        Timer.Play();
+
+       
+           }
+
+    void createPanel() {
+        giantlaser.SetActive(false);
+        Panel.SetActive(true);
+    }
+
+
 
     IEnumerator SpawnBullets()
     {
@@ -52,8 +94,13 @@ public class laserSpawner : MonoBehaviour
     {
 
         int randomIndex;
+        if (healthSlider.value < 0.3)
+        {
+            StopCoroutine(SpawnBullets());
+            Debug.Log("healthSlider가 0.3 이하입니다! 코루틴 중지됨.");
+        }
 
-        if (healthSlider.value < 0.8) {
+        if (healthSlider.value < 0.8 ) {
             randomIndex = GetRandomIndexExcludingPrevious2();
             Debug.Log("2페이지 입니다");
         }
@@ -147,16 +194,6 @@ public class laserSpawner : MonoBehaviour
                 StartCoroutine(Delay(rb, new Vector2(-5, -1).normalized * speed, randomIndex));
             }
 
-        if (healthSlider.value < 0.8)
-        {
-            active = false;
-            Panel.SetActive(true);
-
-            if (!Panel.activeSelf) {
-                active = true;
-            }
-        
-        }
         
 
        
