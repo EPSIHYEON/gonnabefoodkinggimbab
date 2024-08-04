@@ -19,11 +19,7 @@ TagManager:
   - Water
   - UI
   - Bullet
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Image
   - 
   - 
   - 
@@ -50,4 +46,7 @@ TagManager:
     locked: 0
   - name: 2
     uniqueID: 652903567
+    locked: 0
+  - name: image
+    uniqueID: 765693339
     locked: 0
