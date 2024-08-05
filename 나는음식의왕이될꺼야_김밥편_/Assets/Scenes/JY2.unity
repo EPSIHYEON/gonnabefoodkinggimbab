@@ -3296,8 +3296,8 @@ MonoBehaviour:
   healthSlider: {fileID: 283392532}
   blackout: {fileID: 2120000407}
   player: {fileID: 1189253072}
-  kBoss: {fileID: 0}
-  kbullet: {fileID: 5010934183285337333, guid: 3abee676889f44f67a4877e094817c92, type: 3}
+  JBoss: {fileID: 0}
+  Jbullet: {fileID: 5010934183285337333, guid: 3abee676889f44f67a4877e094817c92, type: 3}
   laser: {fileID: 2052589813}
 --- !u!114 &2039856292
 MonoBehaviour:
@@ -3311,7 +3311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1cd23d68fd147dc804a5640e6d1c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JBullet: {fileID: 5010934183285337333, guid: 3abee676889f44f67a4877e094817c92, type: 3}
+  Jbullet: {fileID: 4642600082126145780, guid: e17133da4908e43a8b55d6f44c0c2d2c, type: 3}
   player: {fileID: 1189253074}
   followDelay: 0.5
   smoothTime: 0.3

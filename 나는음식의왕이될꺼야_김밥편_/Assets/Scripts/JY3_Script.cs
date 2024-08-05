@@ -19,7 +19,7 @@ public class JY3_Script : MonoBehaviour
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
-    int[] imageNumber = { 1, 2, 6, 6, 7, 3, 8, 3, 9, 4 }; 
+    int[] imageNumber = { 1, 2, 6, 6, 7, 3, 8, 3, 9, 4 };
  
     public GameObject BlackOut;
     public GameObject BlackMove;

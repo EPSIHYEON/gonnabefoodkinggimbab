@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu Instance;
     public GameObject pauseMenuPanel;
+    private bool isPanelActive;
 
-    private static PauseMenu instance;
-
-    void Awake()
+    private void Awake()
     {
         // 싱글턴 패턴을 사용하여 인스턴스를 유지
-        if (instance == null)
+        if (Instance ==  null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject); // 이미 존재하는 인스턴스가 있으면 현재 객체를 파괴
+        else{
+            Destroy(gameObject);  // 이미 존재하는 인스턴스가 있으면 현재 객체를 파괴
         }
     }
 
 
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -33,20 +33,14 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void TogglePauseMenu()
+    private void TogglePauseMenu()
     {
         // 패널 활성화-비활성화
-        pauseMenuPanel.SetActive(!pauseMenuPanel.activeSelf);
+        isPanelActive = !isPanelActive;
+        pauseMenuPanel.SetActive(isPanelActive);
 
         // 게임 일시 정지
-        if (pauseMenuPanel.activeSelf)
-        {
-            Time.timeScale = 0f; // 게임 일시 정지
-        }
-        else
-        {
-            Time.timeScale = 1f; // 게임 재개
-        }
+        Time.timeScale = isPanelActive ? 0f : 1f;
     }
 
     public void OnSettingsButtonCliked()
