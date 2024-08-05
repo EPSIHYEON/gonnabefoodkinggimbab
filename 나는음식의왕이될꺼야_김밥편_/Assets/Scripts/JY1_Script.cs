@@ -18,7 +18,7 @@ public class JY1_Script : MonoBehaviour
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
-    int[] imageNumber = { 1, 2, 1, 5, 4, 1, 6, 1 };
+    int[] imageNumber = { 1, 2, 8, 0, 4, 9, 2, 7 };
  
     public GameObject BlackOut;
     public GameObject BlackMove;
@@ -143,11 +143,11 @@ public class JY1_Script : MonoBehaviour
 
         if (active)
         {
-            characterImage[0].gameObject.SetActive(true);
+            characterImage[6].gameObject.SetActive(true);
         }
         else
         {
-            characterImage[0].gameObject.SetActive(false);
+            characterImage[6].gameObject.SetActive(false);
         }
 
 
