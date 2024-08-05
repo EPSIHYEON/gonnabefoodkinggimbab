@@ -6,11 +6,11 @@ public class Bullet_JY : MonoBehaviour
 {
     Rigidbody2D rigidbullet;
 
-    void Start()
+     void Start()
     {
         rigidbullet = GetComponent<Rigidbody2D>();
     }
-
+    // Update is called once per frame
     void Update()
     {
         straight();
@@ -18,6 +18,7 @@ public class Bullet_JY : MonoBehaviour
     
     void straight() {
         rigidbullet.velocity = transform.up * 10;
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)

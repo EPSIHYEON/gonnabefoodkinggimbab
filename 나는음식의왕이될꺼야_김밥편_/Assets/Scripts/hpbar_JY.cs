@@ -11,8 +11,8 @@ public class hpbar_JY : MonoBehaviour
     public Slider healthSlider;
     public GameObject blackout;
     public GameObject player;
-    public GameObject kBoss;
-    public GameObject kbullet;
+    public GameObject JBoss;
+    public GameObject Jbullet;
     public AudioSource laser;
     
 
@@ -54,7 +54,7 @@ public class hpbar_JY : MonoBehaviour
     {
         
         player.SetActive(false);
-        kBoss.SetActive(false);
+        JBoss.SetActive(false);
        
         blackout.SetActive(true);
         Invoke("SetScene", 3f);
