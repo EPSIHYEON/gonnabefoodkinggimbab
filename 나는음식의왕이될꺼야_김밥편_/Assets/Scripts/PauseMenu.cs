@@ -47,16 +47,19 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Settings Button Clicked");
        // 설정 메뉴로 이동하거나 설정을 여는 코드
+       pauseMenuPanel.SetActive(false);
     }
 
     public void OnMainMenuButtonCliked()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("시작화면");
+        pauseMenuPanel.SetActive(false);
     }
 
     public void OnQuitButtonCliked()
     {
        Application.Quit();
+       pauseMenuPanel.SetActive(false);
     }
 }
