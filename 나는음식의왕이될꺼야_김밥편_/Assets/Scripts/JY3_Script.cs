@@ -110,16 +110,25 @@ public class JY3_Script : MonoBehaviour
             
             scriptSound.Play();
 
-            if (currentDialogue == dialogues[3]) {
-                dialogueText.text = currentDialogue.Substring(0, i); 
-
-                yield return new WaitForSeconds(0.15f);
-
+            // "'맛'으로" 부분을 체크
+            if (currentDialogue == dialogues[3])
+            {
+                if (i >= 7 && i < 12) // "'맛'으로" 부분의 인덱스
+                {
+                    dialogueText.text = currentDialogue.Substring(0, i);
+                    yield return new WaitForSeconds(0.3f); // 느리게 표시
+                }
+                else
+                {
+                    dialogueText.text = currentDialogue.Substring(0, i);
+                    yield return new WaitForSeconds(0.005f);
+                }
             }
+
             else if (currentDialogue == dialogues[7]) {
                 dialogueText.text = currentDialogue.Substring(0, i); 
 
-                yield return new WaitForSeconds(0.0001f); 
+                yield return new WaitForSeconds(0.000001f); 
 
             }
 
