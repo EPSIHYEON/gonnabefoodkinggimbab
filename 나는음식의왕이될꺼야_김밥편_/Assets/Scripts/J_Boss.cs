@@ -12,6 +12,9 @@ public class J_Boss : MonoBehaviour
     public float smoothTime = 0.3f;
     public GameObject blackout;
     public Button restartButton;
+    public int numberOfBullets = 8; // 발사할 총알의 개수
+    public float bulletSpread = 360f; // 총알의 발사 범위 (360도 원형)
+
     private Queue<float> playerPositions = new Queue<float>();
     private float velocity = 0.0f;
     // Start is called before the first frame update
@@ -51,9 +54,8 @@ public class J_Boss : MonoBehaviour
 
     IEnumerator ShootJbulletRoutine() {
         if (!restartButton.gameObject.activeSelf && !blackout.gameObject.activeSelf)
-        {
+        {  
             shootJbullet();
-
             yield return new WaitForSeconds(1f);
             StartCoroutine(ShootJbulletRoutine());
         }
@@ -78,11 +80,23 @@ public class J_Boss : MonoBehaviour
     }
 
     void shootJbullet() {
-        GameObject bullet = Instantiate(Jbullet, transform.position + Vector3.down * 1, Quaternion.identity);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        float angleStep = bulletSpread / numberOfBullets;
+        float angle = 0f;
 
-        rb.velocity = Vector2.down * 10;
-        Debug.Log("Boss하고있음");
+        for (int i = 0; i < numberOfBullets; i++)
+        {
+            float bulletDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+            float bulletDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+
+            Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0f) - transform.position;
+            GameObject bullet = Instantiate(Jbullet, transform.position, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = bulletMoveDirection.normalized * 800f;
+
+            angle += angleStep;
+        }
+
+        Debug.Log("Boss가 원형으로 총알 발사 중");
     }
 }
 

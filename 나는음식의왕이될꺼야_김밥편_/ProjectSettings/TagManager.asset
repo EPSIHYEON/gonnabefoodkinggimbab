@@ -21,7 +21,7 @@ TagManager:
   - UI
   - Bullet
   - Image
-  - 
+  - Button
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: image
     uniqueID: 765693339
+    locked: 0
+  - name: Button
+    uniqueID: 2545929387
     locked: 0

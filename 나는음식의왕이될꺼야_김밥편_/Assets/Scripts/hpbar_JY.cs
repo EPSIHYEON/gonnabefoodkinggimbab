@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+
 public class hpbar_JY : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -15,8 +17,7 @@ public class hpbar_JY : MonoBehaviour
     public GameObject Jbullet;
     public AudioSource laser;
     
-
-
+   
     private Animator hpbarAnimator;
 
     void Start()
@@ -25,11 +26,9 @@ public class hpbar_JY : MonoBehaviour
         currentHealth = maxHealth;
         UpdateHealthUI();
     }
-
-
     void Update()
     {
-
+       
     }
 
     void UpdateHealthUI()
@@ -82,6 +81,6 @@ public class hpbar_JY : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("제육3");
+        SceneManager.LoadScene("JY3");
     }
 }

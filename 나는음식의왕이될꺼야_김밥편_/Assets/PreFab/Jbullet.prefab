@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1078872578284899456}
   - component: {fileID: 4960959183583453309}
   - component: {fileID: 856984106656953926}
-  - component: {fileID: -8723952973508227}
   - component: {fileID: -865582032153481156}
+  - component: {fileID: 1507987281248169968}
   m_Layer: 6
   m_Name: Jbullet
   m_TagString: jbullet
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010934183285337333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.3337, y: -0.3311, z: 0}
+  m_LocalScale: {x: 0.33267012, y: 0.3377952, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,18 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8723952973508227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5010934183285337333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e5e5a35512144fb837af2d9eaadad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &-865582032153481156
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +124,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1507987281248169968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010934183285337333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e5e5a35512144fb837af2d9eaadad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

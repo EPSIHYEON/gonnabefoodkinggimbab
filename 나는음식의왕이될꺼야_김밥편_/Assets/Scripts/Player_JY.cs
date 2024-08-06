@@ -18,6 +18,7 @@ public class Player_JY : MonoBehaviour
 
     void Start()
     {
+        restartButton.gameObject.SetActive(false);
         rigid = GetComponent<Rigidbody2D>();
         active = true;
     }
@@ -59,7 +60,7 @@ public class Player_JY : MonoBehaviour
     {
         Debug.Log("재시작");
 
-        SceneManager.LoadScene("제육2");
+        SceneManager.LoadScene("JY2");
 
         active = true;
     }
@@ -77,6 +78,7 @@ public class Player_JY : MonoBehaviour
             else{
                 diesound.Play();
                 active = false;
+                gameObject.SetActive(false);
                 restartButton.gameObject.SetActive(true);
             }
         }
