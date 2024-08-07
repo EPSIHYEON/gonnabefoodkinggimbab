@@ -91,7 +91,7 @@ public class J_Boss : MonoBehaviour
             Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0f) - transform.position;
             GameObject bullet = Instantiate(Jbullet, transform.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = bulletMoveDirection.normalized * 800f;
+            rb.velocity = bulletMoveDirection.normalized * 1000f;
 
             angle += angleStep;
         }
