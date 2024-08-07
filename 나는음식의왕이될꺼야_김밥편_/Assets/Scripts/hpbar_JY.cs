@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 
 
 
-public class hpbar : MonoBehaviour
+public class hpbar_JY : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject blackout;
     public GameObject player;
-    public GameObject KBoss;
-    public GameObject kbullet;
+    public GameObject JBoss;
+    public GameObject Jbullet;
     public AudioSource laser;
     
    
@@ -53,7 +53,7 @@ public class hpbar : MonoBehaviour
     {
         
         player.SetActive(false);
-        KBoss.SetActive(false);
+        JBoss.SetActive(false);
        
         blackout.SetActive(true);
         Invoke("SetScene", 3f);
@@ -81,6 +81,6 @@ public class hpbar : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("��ġ3");
+        SceneManager.LoadScene("JY3");
     }
 }

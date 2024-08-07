@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Bullet : MonoBehaviour
+public class Bullet_JY : MonoBehaviour
 {
     Rigidbody2D rigidbullet;
 
@@ -15,6 +15,7 @@ public class P_Bullet : MonoBehaviour
     {
         straight();
     }
+    
     void straight() {
         rigidbullet.velocity = transform.up * 10;
 
@@ -27,6 +28,4 @@ public class P_Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    
 }
