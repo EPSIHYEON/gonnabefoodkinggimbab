@@ -4,33 +4,43 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PastaScript : MonoBehaviour
+
+public class pasta_3 : MonoBehaviour
 {
+    public GameObject panel;
     public GameObject BlackOut;
     public GameObject BlackMove;
-    public GameObject babbullet;
+    public AudioSource typingsound;
+    
+    
+    public GameObject gimbablaser;
+
     public Text dialogueText;
 
     public Text nameText;// Reference to your UI Text component
 
-    string first = "어쩌지? 이젠.. 피할 수 없어...! ";
-    string[] dialogues = {  "난.. 결국.. 여기까지인건가... ","잠깐!!! ", "....?","당신들은..?","우리가 있다는 것을 잊었나???? ","..뭐지? 저 분위기 없는 것들은?? "
-    ,"아직 포기하기에는 이르다! 우리에게는 '그것'이 있으니!! ","네..? '그것'이... 대체 뭐죠? ","파스타는 할 수 없는... 김밥 너만이 할 수 있는 것! ", "나만이 할 수 있는... "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
-    string[] namepanel = {  "김밥", "???", "김밥" , "김밥", "김치 & 제육", "파스타", "제육","김밥", "김치"," 김밥" };
+    string first = "저게... 뭐지..? ";
+    string[] dialogues = {  "이것이.. 우리의 '분위기'다!! ","무슨 소리냐!!!!!!", "대체 그 모습이 어디서 분위기가 나오냐는 것이냐!!!!!! ", "소풍을 갈때.. 대장금님께서는 언제나 말하셨지 ",
+        "오늘은 김밥이 활약을 할 차례네?","나는 슬펐어", "소풍 날에는 김밥에게만 주목을 해주었으니깐 말이야.. ",
+        "하지만, 먹기도 편하고, 영양소도 풍부한 김밥이 소풍날 주목받는 건 당연했지.. ","그치만 대장금님께서는 그것을 아시고, 김밥이에게 능력을 주셨다 ",
+        "그것은 바로.. '모두를 포용하는 능력'이다!! ", "소풍은... 모두와 함께하는 추억이니까!!!!! ","모두와 함께하는 이 '분위기'를 너는 우매하다고 하는 것이냐!!!!!!!! " };
+    // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
+    string[] namepanel = { "김치제육김밥", "파스타", "파스타", "김치", "대장금","김치", "김치","김치", "제육","제육", "김치제육김밥", " 김치제육김밥" };
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
 
-    int[] imageNumber = { 0, 1, 0, 1,0,1,0,1,0,1};
+    int[] imageNumber = { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,0,1 }; //12
 
 
     private Coroutine typingCoroutine;
 
     void Start()
     {
-        babbullet.SetActive(false);
+        
+       
         firstshowImage();
         firstshowName();
         firstShowDialogue();
@@ -57,8 +67,9 @@ public class PastaScript : MonoBehaviour
 
             else
             {
-                BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+                panel.SetActive(false);
+                gimbablaser.SetActive(true);
+
             }
         }
     }
@@ -127,9 +138,29 @@ public class PastaScript : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
+            if (i < currentDialogue.Length && currentDialogue[i] != ' ')
+            {
+                typingsound.Play();
+            }
 
+            if (currentDialogue == dialogues[9])
+            {
+                if (i < 7) // "'맛'으로" 부분의 인덱스
+                {
+                    dialogueText.text = currentDialogue.Substring(0, i);
+                    yield return new WaitForSeconds(0.15f); // 느리게 표시
+                }
+                else
+                {
+                    dialogueText.text = currentDialogue.Substring(0, i);
+                    yield return new WaitForSeconds(0.005f);
+                }
+            }
 
-            dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
+            else
+            {
+                dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
+            }
 
             yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
 
@@ -143,7 +174,7 @@ public class PastaScript : MonoBehaviour
 
     void firstshowName()
     {
-        string currentname = "김밥";
+        string currentname = "파스타";
 
         nameText.text = currentname;
 
@@ -174,6 +205,10 @@ public class PastaScript : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
+           if (i < firstDialogue.Length && firstDialogue[i] != ' ')
+            {
+                typingsound.Play();
+            }
 
             dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
@@ -189,6 +224,6 @@ public class PastaScript : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("김치2");
+        SceneManager.LoadScene("pasta3");
     }
 }

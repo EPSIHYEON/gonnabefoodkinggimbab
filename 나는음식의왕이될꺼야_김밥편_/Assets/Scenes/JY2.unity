@@ -591,9 +591,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 858355151}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3407,7 +3407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Jbullet: {fileID: 5010934183285337333, guid: 3abee676889f44f67a4877e094817c92, type: 3}
   player: {fileID: 1189253074}
-  followDelay: 0.5
+  followDelay: 0
   smoothTime: 0.3
   blackout: {fileID: 2120000407}
   restartButton: {fileID: 2031526284}
@@ -3426,7 +3426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 0
   healthSlider: {fileID: 283392532}
   blackout: {fileID: 2120000407}
   player: {fileID: 1189253072}
@@ -3503,7 +3503,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
