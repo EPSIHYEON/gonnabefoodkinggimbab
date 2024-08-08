@@ -11,7 +11,7 @@ public class ForAni : MonoBehaviour
     private Vector3 initialScale;     // 초기 스케일
     private float timeElapsed;
    // public Animator animator;
-    private bool isAnimating = false;
+   
     void Start()
     {
        // animator.SetTrigger("lase");
