@@ -41,7 +41,7 @@ public class hpbar : MonoBehaviour
         laser.Play();
         currentHealth -= damageAmount;
         UpdateHealthUI();
-        hpbarAnimator.SetTrigger("hpmove");
+        hpbarAnimator.SetTrigger("new_hp");
 
         if (healthSlider.value == 0) {
             BossDie();
@@ -81,6 +81,6 @@ public class hpbar : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("��ġ3");
+        SceneManager.LoadScene("김치3");
     }
 }

@@ -40,7 +40,7 @@ public class pasta_hpbar : MonoBehaviour
         laser.Play();
         currentHealth -= damageAmount;
         UpdateHealthUI();
-        hpbarAnimator.SetTrigger("hpmove");
+        hpbarAnimator.SetTrigger("new_hp");
 
         if (healthSlider.value == 0)
         {

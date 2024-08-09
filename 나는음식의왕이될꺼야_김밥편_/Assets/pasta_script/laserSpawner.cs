@@ -7,6 +7,7 @@ public class laserSpawner : MonoBehaviour
 {
     public Slider healthSlider;
     public GameObject giantlaser;
+    public GameObject Number;
     public GameObject Panel;
     public GameObject babBullet;
     public GameObject PBoss;
@@ -44,7 +45,7 @@ public class laserSpawner : MonoBehaviour
 
    void Update()
     {
-        if (healthSlider.value <= 0.3f)
+        if (healthSlider.value <= 0.2f)
         {
             PBoss.SetActive(false);
             if (spawnCoroutine != null)
@@ -53,7 +54,7 @@ public class laserSpawner : MonoBehaviour
                 spawnCoroutine = null; // Coroutine 참조를 초기화
                 Debug.Log("healthSlider가 0.3 이하입니다! 코루틴 중지됨.");
                 Invoke("GiantLaser",4f);
-                Invoke("createPanel", 10f);
+                Invoke("createPanel", 14f);
             }
         }
     }
@@ -62,13 +63,16 @@ public class laserSpawner : MonoBehaviour
         
         giantlaser.SetActive(true);
         GiantLaserSound.Play();
+        Number.SetActive(true);
         Timer.Play();
+
 
        
            }
 
     void createPanel() {
-        giantlaser.SetActive(false);
+        Number.SetActive(false);
+       
         Panel.SetActive(true);
     }
 
@@ -94,7 +98,7 @@ public class laserSpawner : MonoBehaviour
     {
 
         int randomIndex;
-        if (healthSlider.value < 0.3)
+        if (healthSlider.value < 0.2)
         {
             StopCoroutine(SpawnBullets());
             Debug.Log("healthSlider가 0.3 이하입니다! 코루틴 중지됨.");
