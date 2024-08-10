@@ -11,7 +11,8 @@ public class pastaScript1 : MonoBehaviour
     public GameObject BlackMove;
     public GameObject pboss;
     public GameObject babbullet;
-   
+    public AudioSource scriptSound;
+
     public Text dialogueText;
 
     public Text nameText;// Reference to your UI Text component
@@ -26,7 +27,7 @@ public class pastaScript1 : MonoBehaviour
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
 
-    int[] imageNumber = { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+    int[] imageNumber = { 2, 5, 3, 3, 6, 8, 9, 0, 10, 4 };
 
 
     private Coroutine typingCoroutine;
@@ -61,8 +62,8 @@ public class pastaScript1 : MonoBehaviour
 
             else
             {
-                BlackMove.SetActive(true);
-                SetScene();
+                BlackOut.SetActive(true);
+                Invoke("SetScene", 1f);
 
             }
         }
@@ -133,6 +134,11 @@ public class pastaScript1 : MonoBehaviour
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
 
+            if (i < currentDialogue.Length && currentDialogue[i] != ' ')
+            {
+                scriptSound.Play();
+            }
+
 
             dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
@@ -180,6 +186,11 @@ public class pastaScript1 : MonoBehaviour
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
 
+            if (i < firstDialogue.Length && firstDialogue[i] != ' ')
+            {
+                scriptSound.Play();
+            }
+
             dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
             yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
@@ -194,6 +205,6 @@ public class pastaScript1 : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("pasta3");
+        SceneManager.LoadScene("파스타3");
     }
 }
