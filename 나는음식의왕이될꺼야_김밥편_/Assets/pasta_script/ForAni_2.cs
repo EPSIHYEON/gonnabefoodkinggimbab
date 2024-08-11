@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ForAni_2 : MonoBehaviour
 {
+    public AudioSource laserEffect;
     public float expandSpeed;  // 레이저가 확장되는 속도
     public float maxLength; // 레이저의 최대 길이
     private Vector3 initialScale;   // 레이저의 초기 크기
@@ -11,6 +12,7 @@ public class ForAni_2 : MonoBehaviour
 
     void Start()
     {
+        laserEffect.Play();
         // 초기 크기와 위치를 저장
         initialScale = transform.localScale;
         initialPosition = transform.position;

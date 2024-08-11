@@ -12,9 +12,11 @@ public class bulletspawner : MonoBehaviour
     public float speed = 10f;
     public Button restartButton;
     public GameObject blackout;
+    public AudioSource BackgroundSound;
     Rigidbody2D rb;
     void Start()
     {
+        BackgroundSound.Play();
         rb = GetComponent<Rigidbody2D>();
 
 
@@ -34,6 +36,7 @@ public class bulletspawner : MonoBehaviour
             }
             else
             {
+                BackgroundSound.Pause();
                 yield break; // 코루틴을 즉시 종료합니다.
             }
         }

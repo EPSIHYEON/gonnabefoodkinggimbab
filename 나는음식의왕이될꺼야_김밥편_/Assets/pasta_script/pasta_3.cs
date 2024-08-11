@@ -13,7 +13,7 @@ public class pasta_3 : MonoBehaviour
     public AudioSource typingsound;
     public AudioSource Effectsound;
     public AudioSource Backroundsound;
-
+    
 
     public GameObject gimbablaser;
 
@@ -25,22 +25,26 @@ public class pasta_3 : MonoBehaviour
     string[] dialogues = {  "이것이.. 우리의 '분위기'다!! ","무슨 소리냐!!!!!!", "대체 그 모습이 어디서 '분위기'가 나오냐는 것이냐!!!!!! ", "소풍을 갈때.. 대장금님께서는 언제나 말하셨지 ",
         "오늘은 김밥이 활약을 할 차례네?","나는 슬펐어", "소풍 날에는 김밥에게만 주목을 해주었으니깐 말이야.. ",
         "하지만, 먹기도 편하고, 영양소도 풍부한 김밥이 소풍날 주목받는 건 당연했지.. ","그치만 대장금님께서는 그것을 아시고, 김밥이에게 능력을 주셨다 ",
-        "그것은 바로... '모두를 포용하는 능력'이다!! ", "소풍은... 모두와 함께하는 추억이니까!!!!! ","모두와 함께하는 이 '분위기'를 너는 우매하다고 하는 것이냐!!!!!!!! " };
+        "그것은 바로... '모두를 포용하는 능력'이다!! "
+       ,"이제 소풍에서 김밥이 돋보이는게 아냐! ","김밥이 모두를 돋보이게 하는 것이다!! " ,"소풍은... 모두와 함께하는 추억이니까!!!!! ",
+        "모두와 함께하는 이 '분위기'를 너는 우매하다고 하는 것이냐!!!!!!!! " };
     // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
-    string[] namepanel = { "김치제육김밥", "파스타", "파스타", "김치", "대장금","김치", "김치","김치", "제육","제육", "김치제육김밥","김치제육김밥" };
+    string[] namepanel = { "김치제육김밥", "파스타", "파스타", "김치", "대장금","김치", "김치","김치", "제육","제육",  "김치제육김밥", 
+        "김치제육김밥", "김치제육김밥","김치제육김밥" };
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
 
-    int[] imageNumber = { 5, 3, 2, 8, 13, 9, 9, 9, 10, 12,6,14 }; //12
+    int[] imageNumber = { 5, 3, 2, 8, 13, 9, 9, 9, 10, 12,6,6,6, 14 }; //12
 
 
     private Coroutine typingCoroutine;
 
     void Start()
     {
+       
 
         BlackMove.SetActive(true);
         firstshowImage();
@@ -107,17 +111,18 @@ public class pasta_3 : MonoBehaviour
         dialogueText.text = currentDialogue;
 
 
-        if (currentDialogue == dialogues[0] || currentDialogue == dialogues[11])
+        if (currentDialogue == dialogues[0] || currentDialogue == dialogues[13])
         {
             Effectsound.Play();
             currentDialogueIndex2++;
         }
         else if (currentDialogue == dialogues[3]) {
 
-
+           
             Backroundsound.Play();
             currentDialogueIndex2++;
         }
+       
         else
         {
 
