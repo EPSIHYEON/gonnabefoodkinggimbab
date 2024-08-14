@@ -4,21 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class JY1_Script : MonoBehaviour
+public class PA4_Script : MonoBehaviour
 {
     public Text nameText;// Reference to your UI Text component
 
-    string first = "허억.. 허억.. 집 안인가.... 이제 곧.. 부엌에 도달할 수 있는건가..? ";
-    string[] dialogues = { "으디서 피도 안 마른 것이 왕이 되려혀!!!!!!!!!!!!!! ", "아, 아닛 스승님!!! ",
-    "그래 이놈아, 겨우겨우 인간 놈들에게 먹히라고 햄 끼워넣어줬더니",  "뭐??  왕????? ", "스승님, 예전에 야채맛 가득 나는 제가 아닙니다!!" ,"제 당근도 이제 볶.은.당.근 이라구요!!!! ",
-    "볶.은.당.근???", "난 태생부터 볶는 제육인디 어딜 덤비려 혀!!!!!!!!!! ", "크흑...! 스승님... 결국... 저는 스승님을 이겨야 나아갈 수 있는 겁니까!! ", "나의 살갖이 다 타버리기 전까진 절대 보내줄수 없는 기야!!!!!!!!!", "덤벼라!!!! "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
-    string[] namepanel = { "?????" , "김밥", "제육", "제육", "김밥","김밥", "제육", "제육", "김밥", "제육","제육"};
+    string first = "크흑..... ";
+    string[] dialogues = {"그래서... 이렇게 외로웠던 것인가... ", "타지에서... 왕의 자리까지 오르면... 기쁠 줄 알았는데..... ",
+    "그렇지 않을 지도 모르겠군... ", "내가 잊고 있었던 건.... '모두'인가..... ", "아니!!! ", "????? ", "잊지 않았다!!! ",
+    "무슨 소리지??? ", "나는 너가 필요하다! ", "타지에서 이 정도까지 올라온 너에게.... 나는 배우고 싶다!! ",
+    "우리의 목적은 '인간들을 보살피는 것' ", "너의 지식과 나의 지식이 합쳐지면,", "대장금처럼 나라를 다스릴 수 있을 거야! ",
+    "이제부터, 모두가 함께이면 되지 않겠어? ", "..... ", "하하! ", "이것이 바로 '포용하는 능력'인가?? ",
+    "대답은? ", "좋다! "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
+    string[] namepanel = { "파스타", "파스타", "파스타","파스타", "김밥", "파스타", "김밥", "파스타",
+    "김밥", "김밥", "김밥", "김밥", "김밥", "김밥","파스타", "파스타", "파스타", "김밥", "파스타"};
     public Image[] characterImage;
     public bool isTyping = false;
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
-    int[] imageNumber = { 1, 2, 8, 8, 0, 4, 9, 9, 2, 7, 7 };
+    int[] imageNumber = { 8, 8, 8, 8,
+    0, 8, 1, 8,
+    2, 3, 4, 5, 5, 6, 8, 8, 8, 7, 8 };
  
     public GameObject BlackOut;
     public GameObject BlackMove;
@@ -111,21 +117,6 @@ public class JY1_Script : MonoBehaviour
             }
             
 
-            // "'볶.은.당.근" 부분을 체크
-            if (currentDialogue == dialogues[5])
-            {
-                if (i >= 9 && i < 17) 
-                {
-                    dialogueText.text = currentDialogue.Substring(0, i);
-                    yield return new WaitForSeconds(0.2f); // 느리게 표시
-                }
-                else
-                {
-                    dialogueText.text = currentDialogue.Substring(0, i);
-                    yield return new WaitForSeconds(0.005f);
-                }
-            }
-
             else if (currentDialogue == dialogues[8]) {
                 dialogueText.text = currentDialogue.Substring(0, i); 
 
@@ -152,7 +143,7 @@ public class JY1_Script : MonoBehaviour
 
     void firstshowName()
     {
-        string currentname = "김밥";
+        string currentname = "파스타";
 
         nameText.text = currentname;
 
@@ -163,11 +154,11 @@ public class JY1_Script : MonoBehaviour
 
         if (active)
         {
-            characterImage[6].gameObject.SetActive(true);
+            characterImage[8].gameObject.SetActive(true);
         }
         else
         {
-            characterImage[6].gameObject.SetActive(false);
+            characterImage[8].gameObject.SetActive(false);
         }
 
 
@@ -180,25 +171,11 @@ public class JY1_Script : MonoBehaviour
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
             
-    
-            if (i >= 0 && i < 10) 
-            {
-                dialogueText.text = firstDialogue.Substring(0, i);
-                yield return new WaitForSeconds(0.2f); // 느리게 표시
-            }
-            else
-            {
-                dialogueText.text = firstDialogue.Substring(0, i);
-                yield return new WaitForSeconds(0.005f);
-            }
-        
-
+            dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
             if (i < firstDialogue.Length && firstDialogue[i] != ' ') {
                 scriptSound.Play();
             }
-
-            dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
-            scriptSound.Play();
+            
             yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
            
 
@@ -210,6 +187,8 @@ public class JY1_Script : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("JY2");
+        SceneManager.LoadScene("ending");
     }
 }
+
+
