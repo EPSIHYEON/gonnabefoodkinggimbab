@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class pasta_withlaser : MonoBehaviour
 {
     public Slider healthSlider;
     public AudioSource laserSound;
+    public GameObject Blackout;
 
     // Start is called before the first frame update
 
@@ -25,7 +27,10 @@ public class pasta_withlaser : MonoBehaviour
     void StartLate()
     {
         StartCoroutine(HealthBarDown1());
+
     }
+
+
 
 
     IEnumerator HealthBarDown()
@@ -35,13 +40,12 @@ public class pasta_withlaser : MonoBehaviour
             laserSound.Play();
             healthSlider.value -= 0.02f;  // healthSlider 값을 감소시킴
 
-            if (healthSlider.value < 0)
-            {
-                healthSlider.value = 0;  // healthSlider가 0 이하로 내려가는 것을 방지
-            }
+            
 
             yield return new WaitForSeconds(1f);  // 0.05초 대기
         }
+
+   
     }
 
 
@@ -71,10 +75,22 @@ public class pasta_withlaser : MonoBehaviour
 
            
             yield return new WaitForSeconds(0.05f);
+
+            if (healthSlider.value <= 0)
+            {
+                break; // 코루틴 종료
+            }
         }
 
-        // 코루틴 종료 (슬라이더 값이 0이 되면 멈춤)
-        yield break;
+        Blackout.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        SetScene();
+    }
+
+
+    void SetScene()
+    {
+        SceneManager.LoadScene("PA4");
     }
 }
     

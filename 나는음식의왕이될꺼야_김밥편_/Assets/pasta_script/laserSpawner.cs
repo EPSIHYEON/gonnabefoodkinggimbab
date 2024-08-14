@@ -24,6 +24,7 @@ public class laserSpawner : MonoBehaviour
     public AudioSource boom;
     public AudioSource Timer;
     public AudioSource GiantLaserSound;
+    public AudioSource BackgroundSound;
 
     private bool active = true;
     private Coroutine spawnCoroutine;
@@ -35,6 +36,7 @@ public class laserSpawner : MonoBehaviour
     private int previousIndex = -1;
     void Start()
     {
+        BackgroundSound.Play();
         rb = GetComponent<Rigidbody2D>();
         spawnCoroutine = StartCoroutine(SpawnBullets());
         babBullet.SetActive(true);
@@ -42,6 +44,10 @@ public class laserSpawner : MonoBehaviour
 
 
     }
+
+
+
+    
 
    void Update()
     {
@@ -54,6 +60,7 @@ public class laserSpawner : MonoBehaviour
                 spawnCoroutine = null; // Coroutine 참조를 초기화
                 Debug.Log("healthSlider가 0.3 이하입니다! 코루틴 중지됨.");
                 Invoke("GiantLaser",4f);
+                BackgroundSound.Pause();
                 Invoke("createPanel", 14f);
             }
         }
@@ -202,6 +209,9 @@ public class laserSpawner : MonoBehaviour
 
        
     }
+
+
+  
 
     int GetRandomIndexExcludingPrevious1()
     {

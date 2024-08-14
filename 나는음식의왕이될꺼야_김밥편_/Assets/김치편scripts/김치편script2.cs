@@ -9,7 +9,8 @@ public class 김치편script2 : MonoBehaviour
     public GameObject BlackOut;
     public GameObject BlackMove;
     public AudioSource scriptSound;
-    
+    public AudioSource Effectsound;
+
     public Text dialogueText;
 
     public Text nameText;// Reference to your UI Text component
@@ -129,6 +130,7 @@ public class 김치편script2 : MonoBehaviour
     IEnumerator typing(string currentDialogue)
     {
         isTyping = true;
+        bool soundPlayed = false;
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
 
@@ -146,14 +148,27 @@ public class 김치편script2 : MonoBehaviour
                 yield return new WaitForSeconds(0.2f); // 0.25초마다 한 글자씩 표시
 
             }
-            else
+          
+
+               
+
+            if (!soundPlayed && currentDialogue == dialogues[3] && i < 7)
             {
-
-
                 dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
+                yield return new WaitForSeconds(0.2f); // 0.25초마다 한 글자씩 표시
+            }
+
+            else if(!soundPlayed && currentDialogue == dialogues[3] && i >= 7) {
+                Effectsound.Play(); 
+                soundPlayed = true;
                 yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
             }
+
+            dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
+
+            yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
+           
 
 
         }
@@ -194,6 +209,7 @@ public class 김치편script2 : MonoBehaviour
     IEnumerator firsttyping(string firstDialogue)
     {
         isTyping = true;
+        
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
 
@@ -203,6 +219,8 @@ public class 김치편script2 : MonoBehaviour
             }
 
             dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
+
+
 
             yield return new WaitForSeconds(0.05f); // 0.05초마다 한 글자씩 표시
 
@@ -216,6 +234,6 @@ public class 김치편script2 : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("김치2");
+        SceneManager.LoadScene("JY1");
     }
 }

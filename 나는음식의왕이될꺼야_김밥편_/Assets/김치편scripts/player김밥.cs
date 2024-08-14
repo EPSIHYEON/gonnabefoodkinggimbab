@@ -19,6 +19,7 @@ public class player김밥 : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         active = true;
+        bullets.SetActive(true);
     }
 
     // Update is called once per frame

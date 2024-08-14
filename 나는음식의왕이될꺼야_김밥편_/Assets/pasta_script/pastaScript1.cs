@@ -9,9 +9,11 @@ public class pastaScript1 : MonoBehaviour
     public GameObject panel;
     public GameObject BlackOut;
     public GameObject BlackMove;
+    public GameObject playergim;
     public GameObject pboss;
     public GameObject babbullet;
     public AudioSource scriptSound;
+
 
     public Text dialogueText;
 
@@ -62,7 +64,9 @@ public class pastaScript1 : MonoBehaviour
 
             else
             {
+                
                 BlackOut.SetActive(true);
+                playergim.SetActive(false);
                 Invoke("SetScene", 1f);
 
             }
