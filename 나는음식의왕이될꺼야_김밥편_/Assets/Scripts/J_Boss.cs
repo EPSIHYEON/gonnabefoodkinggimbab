@@ -13,7 +13,7 @@ public class J_Boss : MonoBehaviour
     public GameObject blackout;
     public Button restartButton;
     public int numberOfBullets = 8; // 발사할 총알의 개수
-    public float bulletSpread = 360f; // 총알의 발사 범위 (360도 원형)
+    public float bulletSpread = 500000; // 총알의 발사 범위 (360도 원형)
 
     private Queue<float> playerPositions = new Queue<float>();
     private float velocity = 0.0f;
