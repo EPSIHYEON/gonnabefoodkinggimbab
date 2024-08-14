@@ -63,7 +63,7 @@ public class 김치편script2 : MonoBehaviour
             else
             {
                 BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+                Invoke("SetScene", 2f);
             }
         }
     }

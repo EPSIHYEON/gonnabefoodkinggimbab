@@ -9,7 +9,10 @@ public class 김치편script : MonoBehaviour
     public GameObject BlackOut;
     public Text dialogueText;
     public AudioSource scriptSound;
-    
+    public AudioSource EffectSound;
+    public AudioSource Backgroundsound;
+
+
 
     public Text nameText;// Reference to your UI Text component
 
@@ -60,8 +63,9 @@ public class 김치편script : MonoBehaviour
 
             else
             {
+                Backgroundsound.Pause();
                 BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+                Invoke("SetScene", 2f);
             }
         }
     }
@@ -79,6 +83,18 @@ public class 김치편script : MonoBehaviour
 
         // Update the text component with the current dialogue
         dialogueText.text = currentDialogue;
+
+
+        if (currentDialogue == dialogues[0]) {
+
+            EffectSound.Play();
+        }
+
+        if (currentDialogue == dialogues[1])
+        {
+
+            Backgroundsound.Play();
+        }
 
 
         // Move to the next dialogue in the array

@@ -15,10 +15,14 @@ public class pasta_3 : MonoBehaviour
     public AudioSource Backroundsound;
     public AudioSource eathquake;
 
+   
+
 
     public GameObject gimbablaser;
 
     public Text dialogueText;
+
+
 
     public Text nameText;// Reference to your UI Text component
 
@@ -45,8 +49,8 @@ public class pasta_3 : MonoBehaviour
 
     void Start()
     {
-       
 
+        
         BlackMove.SetActive(true);
         firstshowImage();
         firstshowName();
@@ -95,6 +99,7 @@ public class pasta_3 : MonoBehaviour
         dialogueText.text = currentDialogue;
 
         eathquake.Play();
+       
 
 
         // Move to the next dialogue in the array
@@ -248,7 +253,7 @@ public class pasta_3 : MonoBehaviour
 
             dialogueText.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
-            yield return new WaitForSeconds(0.1f); 
+            yield return new WaitForSeconds(0.2f); 
 
 
         }
