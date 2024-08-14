@@ -21,6 +21,8 @@ public class Player_JY : MonoBehaviour
         restartButton.gameObject.SetActive(false);
         rigid = GetComponent<Rigidbody2D>();
         active = true;
+
+
     }
 
 
@@ -47,6 +49,7 @@ public class Player_JY : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         Vector3 move = new Vector3(h, v, 0);
         transform.position = move * Time.deltaTime * speed + transform.position;
+
     }
 
     void shoot()
