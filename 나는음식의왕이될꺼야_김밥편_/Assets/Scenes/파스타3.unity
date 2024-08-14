@@ -331,7 +331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -9.000061, y: 105}
+  m_AnchoredPosition: {x: -9, y: 105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &25203855
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 716633282}
   - component: {fileID: 716633281}
   - component: {fileID: 716633280}
-  - component: {fileID: 716633279}
+  - component: {fileID: 716633283}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1383,44 +1383,6 @@ RectTransform:
   m_AnchoredPosition: {x: -99.99997, y: -149.99997}
   m_SizeDelta: {x: 720, y: 630}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &716633279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716633277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a47af130ecfdfde408a30777de7cb3da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 716633277}
-  BlackOut: {fileID: 1978478722}
-  BlackMove: {fileID: 1544062964}
-  typingsound: {fileID: 1862850712}
-  Effectsound: {fileID: 595856376}
-  Backroundsound: {fileID: 1567644455}
-  eathquake: {fileID: 1174150414}
-  gimbablaser: {fileID: 2027443759}
-  dialogueText: {fileID: 22172704}
-  nameText: {fileID: 2009525690}
-  characterImage:
-  - {fileID: 1955756192}
-  - {fileID: 597719553}
-  - {fileID: 1916635254}
-  - {fileID: 681707098}
-  - {fileID: 1159878906}
-  - {fileID: 1847061356}
-  - {fileID: 237452685}
-  - {fileID: 1802556338}
-  - {fileID: 1167966335}
-  - {fileID: 25203856}
-  - {fileID: 330460812}
-  - {fileID: 981637179}
-  - {fileID: 1597209951}
-  - {fileID: 988092605}
-  - {fileID: 1887718215}
 --- !u!114 &716633280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,6 +1436,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716633277}
   m_CullTransparentMesh: 1
+--- !u!114 &716633283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716633277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee7e1fabff859645bd3dc945cfe7ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 716633277}
+  BlackOut: {fileID: 1978478722}
+  BlackMove: {fileID: 1544062964}
+  typingsound: {fileID: 1862850712}
+  Effectsound: {fileID: 595856376}
+  Backroundsound: {fileID: 1567644455}
+  eathquake: {fileID: 1174150414}
+  gimbablaser: {fileID: 1858133268}
+  dialogueText: {fileID: 22172704}
+  nameText: {fileID: 2009525690}
+  characterImage:
+  - {fileID: 1955756192}
+  - {fileID: 597719553}
+  - {fileID: 1916635254}
+  - {fileID: 681707098}
+  - {fileID: 1159878906}
+  - {fileID: 1847061356}
+  - {fileID: 237452685}
+  - {fileID: 1802556338}
+  - {fileID: 1167966335}
+  - {fileID: 25203856}
+  - {fileID: 330460812}
+  - {fileID: 981637179}
+  - {fileID: 1597209951}
+  - {fileID: 988092605}
+  - {fileID: 1887718215}
 --- !u!1 &825200762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -9.000061, y: 105}
+  m_AnchoredPosition: {x: -9, y: 105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &1167966334
@@ -3417,7 +3417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -9.000061, y: 105}
+  m_AnchoredPosition: {x: -9, y: 105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &1802556337

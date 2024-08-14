@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,16 +22,16 @@ public class pasta_3 : MonoBehaviour
 
     public Text nameText;// Reference to your UI Text component
 
-    string first = "Àú°Ô... ¹¹Áö..? ";
-    string[] dialogues = {  "ÀÌ°ÍÀÌ.. ¿ì¸®ÀÇ 'ºĞÀ§±â'´Ù!! ","¹«½¼ ¼Ò¸®³Ä!!!!!!", "´ëÃ¼ ±× ¸ğ½ÀÀÌ ¾îµğ¼­ 'ºĞÀ§±â'°¡ ³ª¿À³Ä´Â °ÍÀÌ³Ä!!!!!! ", "¼ÒÇ³À» °¥¶§.. ´ëÀå±İ´Ô²²¼­´Â ¾ğÁ¦³ª ¸»ÇÏ¼ÌÁö ",
-        "¿À´ÃÀº ±è¹äÀÌ È°¾àÀ» ÇÒ Â÷·Ê³×?","³ª´Â ½½Æâ¾î", "¼ÒÇ³ ³¯¿¡´Â ±è¹ä¿¡°Ô¸¸ ÁÖ¸ñÀ» ÇØÁÖ¾úÀ¸´Ï±ñ ¸»ÀÌ¾ß.. ",
-        "ÇÏÁö¸¸, ¸Ô±âµµ ÆíÇÏ°í, ¿µ¾ç¼Òµµ Ç³ºÎÇÑ ±è¹äÀÌ ¼ÒÇ³³¯ ÁÖ¸ñ¹Ş´Â °Ç ´ç¿¬ÇßÁö.. ","±×Ä¡¸¸ ´ëÀå±İ´Ô²²¼­´Â ±×°ÍÀ» ¾Æ½Ã°í, ±è¹äÀÌ¿¡°Ô ´É·ÂÀ» ÁÖ¼Ì´Ù ",
-        "±×°ÍÀº ¹Ù·Î... '¸ğµÎ¸¦ Æ÷¿ëÇÏ´Â ´É·Â'ÀÌ´Ù!! "
-       ,"ÀÌÁ¦ ¼ÒÇ³¿¡¼­ ±è¹äÀÌ µ¸º¸ÀÌ´Â°Ô ¾Æ³Ä! ","±è¹äÀÌ ¸ğµÎ¸¦ µ¸º¸ÀÌ°Ô ÇÏ´Â °ÍÀÌ´Ù!! " ,"¼ÒÇ³Àº... ¸ğµÎ¿Í ÇÔ²²ÇÏ´Â Ãß¾ïÀÌ´Ï±î!!!!! ",
-        "¸ğµÎ¿Í ÇÔ²²ÇÏ´Â ÀÌ 'ºĞÀ§±â'¸¦ ³Ê´Â ¿ì¸ÅÇÏ´Ù°í ÇÏ´Â °ÍÀÌ³Ä!!!!!!!! " };
-    // Array of dialogues to display  //²À ½ºÆäÀÌ½º¸¦ ¸¶Áö¸·¿¡ ´­·¯ÁÖ¼¼¿ä
-    string[] namepanel = { "±èÄ¡Á¦À°±è¹ä", "ÆÄ½ºÅ¸", "ÆÄ½ºÅ¸", "±èÄ¡", "´ëÀå±İ","±èÄ¡", "±èÄ¡","±èÄ¡", "Á¦À°","Á¦À°",  "±èÄ¡Á¦À°±è¹ä", 
-        "±èÄ¡Á¦À°±è¹ä", "±èÄ¡Á¦À°±è¹ä","±èÄ¡Á¦À°±è¹ä" };
+    string first = "ì €ê²Œ... ë­ì§€..? ";
+    string[] dialogues = {  "ì´ê²ƒì´.. ìš°ë¦¬ì˜ 'ë¶„ìœ„ê¸°'ë‹¤!! ","ë¬´ìŠ¨ ì†Œë¦¬ëƒ!!!!!!", "ëŒ€ì²´ ê·¸ ëª¨ìŠµì´ ì–´ë””ì„œ 'ë¶„ìœ„ê¸°'ê°€ ë‚˜ì˜¤ëƒëŠ” ê²ƒì´ëƒ!!!!!! ", "ì†Œí’ì„ ê°ˆë•Œ.. ëŒ€ì¥ê¸ˆë‹˜ê»˜ì„œëŠ” ì–¸ì œë‚˜ ë§í•˜ì…¨ì§€ ",
+        "ì˜¤ëŠ˜ì€ ê¹€ë°¥ì´ í™œì•½ì„ í•  ì°¨ë¡€ë„¤?","ë‚˜ëŠ” ìŠ¬íì–´", "ì†Œí’ ë‚ ì—ëŠ” ê¹€ë°¥ì—ê²Œë§Œ ì£¼ëª©ì„ í•´ì£¼ì—ˆìœ¼ë‹ˆê¹ ë§ì´ì•¼.. ",
+        "í•˜ì§€ë§Œ, ë¨¹ê¸°ë„ í¸í•˜ê³ , ì˜ì–‘ì†Œë„ í’ë¶€í•œ ê¹€ë°¥ì´ ì†Œí’ë‚  ì£¼ëª©ë°›ëŠ” ê±´ ë‹¹ì—°í–ˆì§€.. ","ê·¸ì¹˜ë§Œ ëŒ€ì¥ê¸ˆë‹˜ê»˜ì„œëŠ” ê·¸ê²ƒì„ ì•„ì‹œê³ , ê¹€ë°¥ì´ì—ê²Œ ëŠ¥ë ¥ì„ ì£¼ì…¨ë‹¤ ",
+        "ê·¸ê²ƒì€ ë°”ë¡œ... 'ëª¨ë‘ë¥¼ í¬ìš©í•˜ëŠ” ëŠ¥ë ¥'ì´ë‹¤!! "
+       ,"ì´ì œ ì†Œí’ì—ì„œ ê¹€ë°¥ì´ ë‹ë³´ì´ëŠ”ê²Œ ì•„ëƒ! ","ê¹€ë°¥ì´ ëª¨ë‘ë¥¼ ë‹ë³´ì´ê²Œ í•˜ëŠ” ê²ƒì´ë‹¤!! " ,"ì†Œí’ì€... ëª¨ë‘ì™€ í•¨ê»˜í•˜ëŠ” ì¶”ì–µì´ë‹ˆê¹Œ!!!!! ",
+        "ëª¨ë‘ì™€ í•¨ê»˜í•˜ëŠ” ì´ 'ë¶„ìœ„ê¸°'ë¥¼ ë„ˆëŠ” ìš°ë§¤í•˜ë‹¤ê³  í•˜ëŠ” ê²ƒì´ëƒ!!!!!!!! " };
+    // Array of dialogues to display  //ê¼­ ìŠ¤í˜ì´ìŠ¤ë¥¼ ë§ˆì§€ë§‰ì— ëˆŒëŸ¬ì£¼ì„¸ìš”
+    string[] namepanel = { "ê¹€ì¹˜ì œìœ¡ê¹€ë°¥", "íŒŒìŠ¤íƒ€", "íŒŒìŠ¤íƒ€", "ê¹€ì¹˜", "ëŒ€ì¥ê¸ˆ","ê¹€ì¹˜", "ê¹€ì¹˜","ê¹€ì¹˜", "ì œìœ¡","ì œìœ¡",  "ê¹€ì¹˜ì œìœ¡ê¹€ë°¥",
+        "ê¹€ì¹˜ì œìœ¡ê¹€ë°¥", "ê¹€ì¹˜ì œìœ¡ê¹€ë°¥","ê¹€ì¹˜ì œìœ¡ê¹€ë°¥" };
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
@@ -59,6 +59,7 @@ public class pasta_3 : MonoBehaviour
         // Check if the mouse button is clicked
         if ((Input.GetKeyDown("space") && !isTyping) || Input.GetMouseButtonDown(0) && !isTyping)
         {
+            eathquake.Pause();
             BlackMove.SetActive(false);
             firstshowImage(false);
 
@@ -98,7 +99,7 @@ public class pasta_3 : MonoBehaviour
 
         // Move to the next dialogue in the array
 
-        Debug.Log("¹®ÀÚ");
+        Debug.Log("ë¬¸ì");
     }
 
 
@@ -132,7 +133,7 @@ public class pasta_3 : MonoBehaviour
             // Move to the next dialogue in the array
             currentDialogueIndex2++;
         }
-        Debug.Log("¹®ÀÚ");
+        Debug.Log("ë¬¸ì");
     }
     void showName()
     {
@@ -141,7 +142,7 @@ public class pasta_3 : MonoBehaviour
         nameText.text = currentname;
 
         currentDialogueIndex1++;
-        Debug.Log("¹®ÀÚ2");
+        Debug.Log("ë¬¸ì2");
     }
 
     void showImage()
@@ -177,7 +178,7 @@ public class pasta_3 : MonoBehaviour
                 if (i < 7) 
                 {
                     dialogueText.text = currentDialogue.Substring(0, i);
-                    yield return new WaitForSeconds(0.2f); // ´À¸®°Ô Ç¥½Ã
+                    yield return new WaitForSeconds(0.2f); // ëŠë¦¬ê²Œ í‘œì‹œ
                 }
                 else
                 {
@@ -188,7 +189,7 @@ public class pasta_3 : MonoBehaviour
 
             else
             {
-                dialogueText.text = currentDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+                dialogueText.text = currentDialogue.Substring(0, i); // í˜„ì¬ ì¸ë±ìŠ¤ê¹Œì§€ì˜ ë¬¸ìì—´ì„ í‘œì‹œ
             }
 
             if (!soundPlayed && currentDialogue == dialogues[9] && i == 10)
@@ -197,7 +198,7 @@ public class pasta_3 : MonoBehaviour
                 soundPlayed = true; // Ensure the sound plays only once
             }
 
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ì´ˆë§ˆë‹¤ í•œ ê¸€ìì”© í‘œì‹œ
 
 
         }
@@ -209,12 +210,12 @@ public class pasta_3 : MonoBehaviour
 
     void firstshowName()
     {
-        string currentname = "ÆÄ½ºÅ¸";
+        string currentname = "íŒŒìŠ¤íƒ€";
 
         nameText.text = currentname;
 
 
-        Debug.Log("¹®ÀÚ2");
+        Debug.Log("ë¬¸ì2");
     }
 
     void firstshowImage(bool active = true)
@@ -245,7 +246,7 @@ public class pasta_3 : MonoBehaviour
                 typingsound.Play();
             }
 
-            dialogueText.text = firstDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = firstDialogue.Substring(0, i); // í˜„ì¬ ì¸ë±ìŠ¤ê¹Œì§€ì˜ ë¬¸ìì—´ì„ í‘œì‹œ
 
             yield return new WaitForSeconds(0.1f); 
 
@@ -259,6 +260,6 @@ public class pasta_3 : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("ÆÄ½ºÅ¸3");
+        SceneManager.LoadScene("íŒŒìŠ¤íƒ€3");
     }
 }

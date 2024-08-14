@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +19,10 @@ public class pastaScript1 : MonoBehaviour
 
     public Text nameText;// Reference to your UI Text component
 
-    string first = "¾îÂ¼Áö? ÀÌÁ¨.. ÇÇÇÒ ¼ö ¾ø¾î...! ";
-    string[] dialogues = {  "³­.. °á±¹.. ¿©±â±îÁöÀÎ°Ç°¡... ","Àá±ñ!!! ", "....?","´ç½ÅµéÀº..?","¿ì¸®°¡ ÀÖ´Ù´Â °ÍÀ» ÀØ¾ú³ª???? ","..¹¹Áö? Àú ºĞÀ§±â ¾ø´Â °ÍµéÀº?? "
-    ,"¾ÆÁ÷ Æ÷±âÇÏ±â¿¡´Â ÀÌ¸£´Ù! ¿ì¸®¿¡°Ô´Â '±×°Í'ÀÌ ÀÖÀ¸´Ï!! ","³×..? '±×°Í'ÀÌ... ´ëÃ¼ ¹¹ÁÒ? ","ÆÄ½ºÅ¸´Â ÇÒ ¼ö ¾ø´Â... ±è¹ä ³Ê¸¸ÀÌ ÇÒ ¼ö ÀÖ´Â °Í! ", "³ª¸¸ÀÌ ÇÒ ¼ö ÀÖ´Â... "}; // Array of dialogues to display  //²À ½ºÆäÀÌ½º¸¦ ¸¶Áö¸·¿¡ ´­·¯ÁÖ¼¼¿ä
-    string[] namepanel = { "±è¹ä", "???", "±è¹ä", "±è¹ä", "±èÄ¡ & Á¦À°", "ÆÄ½ºÅ¸", "Á¦À°", "±è¹ä", "±èÄ¡", " ±è¹ä" };
+    string first = "ì–´ì©Œì§€? ì´ì  .. í”¼í•  ìˆ˜ ì—†ì–´...! ";
+    string[] dialogues = {  "ë‚œ.. ê²°êµ­.. ì—¬ê¸°ê¹Œì§€ì¸ê±´ê°€... ","ì ê¹!!! ", "....?","ë‹¹ì‹ ë“¤ì€..?","ìš°ë¦¬ê°€ ìˆë‹¤ëŠ” ê²ƒì„ ìŠì—ˆë‚˜???? ","..ë­ì§€? ì € ë¶„ìœ„ê¸° ì—†ëŠ” ê²ƒë“¤ì€?? "
+    ,"ì•„ì§ í¬ê¸°í•˜ê¸°ì—ëŠ” ì´ë¥´ë‹¤! ìš°ë¦¬ì—ê²ŒëŠ” 'ê·¸ê²ƒ'ì´ ìˆìœ¼ë‹ˆ!! ","ë„¤..? 'ê·¸ê²ƒ'ì´... ëŒ€ì²´ ë­ì£ ? ","íŒŒìŠ¤íƒ€ëŠ” í•  ìˆ˜ ì—†ëŠ”... ê¹€ë°¥ ë„ˆë§Œì´ í•  ìˆ˜ ìˆëŠ” ê²ƒ! ", "ë‚˜ë§Œì´ í•  ìˆ˜ ìˆëŠ”... "}; // Array of dialogues to display  //ê¼­ ìŠ¤í˜ì´ìŠ¤ë¥¼ ë§ˆì§€ë§‰ì— ëˆŒëŸ¬ì£¼ì„¸ìš”
+    string[] namepanel = { "ê¹€ë°¥", "???", "ê¹€ë°¥", "ê¹€ë°¥", "ê¹€ì¹˜ & ì œìœ¡", "íŒŒìŠ¤íƒ€", "ì œìœ¡", "ê¹€ë°¥", "ê¹€ì¹˜", " ê¹€ë°¥" };
     public Image[] characterImage;
     private bool isTyping = false;
     private int exnumber = 0;
@@ -86,7 +86,7 @@ public class pastaScript1 : MonoBehaviour
 
         // Move to the next dialogue in the array
 
-        Debug.Log("¹®ÀÚ");
+        Debug.Log("ë¬¸ì");
     }
 
 
@@ -103,7 +103,7 @@ public class pastaScript1 : MonoBehaviour
 
         // Move to the next dialogue in the array
         currentDialogueIndex2++;
-        Debug.Log("¹®ÀÚ");
+        Debug.Log("ë¬¸ì");
     }
     void showName()
     {
@@ -112,7 +112,7 @@ public class pastaScript1 : MonoBehaviour
         nameText.text = currentname;
 
         currentDialogueIndex1++;
-        Debug.Log("¹®ÀÚ2");
+        Debug.Log("ë¬¸ì2");
     }
 
     void showImage()
@@ -144,9 +144,9 @@ public class pastaScript1 : MonoBehaviour
             }
 
 
-            dialogueText.text = currentDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = currentDialogue.Substring(0, i); // í˜„ì¬ ì¸ë±ìŠ¤ê¹Œì§€ì˜ ë¬¸ìì—´ì„ í‘œì‹œ
 
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ì´ˆë§ˆë‹¤ í•œ ê¸€ìì”© í‘œì‹œ
 
 
         }
@@ -158,12 +158,12 @@ public class pastaScript1 : MonoBehaviour
 
     void firstshowName()
     {
-        string currentname = "±è¹ä";
+        string currentname = "ê¹€ë°¥";
 
         nameText.text = currentname;
 
 
-        Debug.Log("¹®ÀÚ2");
+        Debug.Log("ë¬¸ì2");
     }
 
     void firstshowImage(bool active = true)
@@ -195,9 +195,9 @@ public class pastaScript1 : MonoBehaviour
                 scriptSound.Play();
             }
 
-            dialogueText.text = firstDialogue.Substring(0, i); // ÇöÀç ÀÎµ¦½º±îÁöÀÇ ¹®ÀÚ¿­À» Ç¥½Ã
+            dialogueText.text = firstDialogue.Substring(0, i); // í˜„ì¬ ì¸ë±ìŠ¤ê¹Œì§€ì˜ ë¬¸ìì—´ì„ í‘œì‹œ
 
-            yield return new WaitForSeconds(0.05f); // 0.05ÃÊ¸¶´Ù ÇÑ ±ÛÀÚ¾¿ Ç¥½Ã
+            yield return new WaitForSeconds(0.05f); // 0.05ì´ˆë§ˆë‹¤ í•œ ê¸€ìì”© í‘œì‹œ
 
 
         }
@@ -209,6 +209,6 @@ public class pastaScript1 : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("ÆÄ½ºÅ¸3");
+        SceneManager.LoadScene("íŒŒìŠ¤íƒ€3");
     }
 }

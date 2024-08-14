@@ -249,8 +249,8 @@ RectTransform:
   m_LocalScale: {x: 1.000188, y: 1.000188, z: 1.000188}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 966148183}
-  m_RootOrder: 4
+  m_Father: {fileID: 523974447}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -419,7 +419,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 523974447}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1746,6 +1746,7 @@ RectTransform:
   - {fileID: 1684673556}
   - {fileID: 1636190231}
   - {fileID: 1622842392}
+  - {fileID: 54834245}
   - {fileID: 170665321}
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -3244,7 +3245,6 @@ RectTransform:
   - {fileID: 1300606313}
   - {fileID: 172341586}
   - {fileID: 1337019175}
-  - {fileID: 54834245}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5921,7 +5921,7 @@ GameObject:
   - component: {fileID: 1622842396}
   - component: {fileID: 1622842395}
   - component: {fileID: 1622842394}
-  - component: {fileID: 1622842393}
+  - component: {fileID: 1622842397}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -5951,40 +5951,6 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -150}
   m_SizeDelta: {x: 720, y: 630}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1622842393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622842391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582ecd9b5fad12c4182f8b06579e4dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1622842391}
-  BlackOut: {fileID: 170665320}
-  BlackMove: {fileID: 0}
-  playergim: {fileID: 989467007}
-  pboss: {fileID: 981435994}
-  babbullet: {fileID: 7652997153389853509, guid: dadec6fc58f0622439f69af4a8d6e8ed, type: 3}
-  scriptSound: {fileID: 294243130}
-  dialogueText: {fileID: 190246770}
-  nameText: {fileID: 1054616388}
-  characterImage:
-  - {fileID: 1014995888}
-  - {fileID: 1393938995}
-  - {fileID: 1794121294}
-  - {fileID: 1970828965}
-  - {fileID: 1407918608}
-  - {fileID: 1867262728}
-  - {fileID: 1767819578}
-  - {fileID: 1202463548}
-  - {fileID: 535068657}
-  - {fileID: 2110745445}
-  - {fileID: 2120881864}
-  - {fileID: 1684673558}
 --- !u!114 &1622842394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6038,6 +6004,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622842391}
   m_CullTransparentMesh: 1
+--- !u!114 &1622842397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622842391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7974eb5bd9b694e8bb5c0a41d66a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1622842391}
+  BlackOut: {fileID: 170665320}
+  BlackMove: {fileID: 54834241}
+  playergim: {fileID: 989467007}
+  pboss: {fileID: 981435994}
+  babbullet: {fileID: 7652997153389853509, guid: dadec6fc58f0622439f69af4a8d6e8ed, type: 3}
+  scriptSound: {fileID: 294243130}
+  dialogueText: {fileID: 190246770}
+  nameText: {fileID: 1054616388}
+  characterImage:
+  - {fileID: 1014995888}
+  - {fileID: 1393938995}
+  - {fileID: 1794121294}
+  - {fileID: 1970828965}
+  - {fileID: 1407918608}
+  - {fileID: 1867262728}
+  - {fileID: 1767819578}
+  - {fileID: 1202463548}
+  - {fileID: 535068657}
+  - {fileID: 2110745445}
+  - {fileID: 2120881864}
+  - {fileID: 1684673558}
 --- !u!1 &1624099423
 GameObject:
   m_ObjectHideFlags: 0
