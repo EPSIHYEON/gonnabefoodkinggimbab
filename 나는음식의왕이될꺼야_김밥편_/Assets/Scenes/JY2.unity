@@ -3205,7 +3205,7 @@ MonoBehaviour:
   smoothTime: 0.3
   blackout: {fileID: 2120000407}
   restartButton: {fileID: 2031526284}
-  numberOfBullets: 8
+  numberOfBullets: 10
   bulletSpread: 1e+9
 --- !u!114 &2039856293
 MonoBehaviour:

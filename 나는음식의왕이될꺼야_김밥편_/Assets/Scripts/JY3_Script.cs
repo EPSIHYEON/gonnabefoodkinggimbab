@@ -197,6 +197,6 @@ public class JY3_Script : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("제육2");
+        SceneManager.LoadScene("파스타1");
     }
 }

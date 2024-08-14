@@ -22,9 +22,9 @@ public class PA4_Script : MonoBehaviour
     private int exnumber = 0;
     private int currentDialogueIndex1 = 0;
     private int currentDialogueIndex2 = 0;
-    int[] imageNumber = { 8, 8, 8, 8,
-    0, 8, 1, 8,
-    2, 3, 4, 5, 5, 6, 8, 8, 8, 7, 8 };
+    int[] imageNumber = { 8, 9, 10, 12,
+    0, 16, 1, 11,
+    2, 3, 4, 5, 5, 6, 13, 14, 14, 7, 15 };
  
     public GameObject BlackOut;
     public GameObject BlackMove;
@@ -154,11 +154,11 @@ public class PA4_Script : MonoBehaviour
 
         if (active)
         {
-            characterImage[8].gameObject.SetActive(true);
+            characterImage[9].gameObject.SetActive(true);
         }
         else
         {
-            characterImage[8].gameObject.SetActive(false);
+            characterImage[9].gameObject.SetActive(false);
         }
 
 
