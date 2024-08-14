@@ -9,6 +9,8 @@ TagManager:
   - playerbullet
   - pbullet
   - laser
+  - jbullet
+  - INborder
   layers:
   - Default
   - TransparentFX

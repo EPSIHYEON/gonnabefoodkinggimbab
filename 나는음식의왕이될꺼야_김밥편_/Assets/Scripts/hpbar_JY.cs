@@ -41,7 +41,7 @@ public class hpbar_JY : MonoBehaviour
         laser.Play();
         currentHealth -= damageAmount;
         UpdateHealthUI();
-        hpbarAnimator.SetTrigger("hpbar_move2");
+        hpbarAnimator.SetTrigger("hp_move");
 
         if (healthSlider.value == 0) {
             BossDie();
