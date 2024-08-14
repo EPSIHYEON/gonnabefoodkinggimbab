@@ -55,7 +55,7 @@ public class player김밥 : MonoBehaviour
 
 
 
-    public void Restart()
+    public void Restart_K()
     {
         Debug.Log("재시작");
 
@@ -64,13 +64,25 @@ public class player김밥 : MonoBehaviour
         active = true;
     }
 
+    public void Restart_P()
+    {
+        Debug.Log("재시작");
+
+        SceneManager.LoadScene("파스타2");
+
+        active = true;
+
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "kbullet")
+        if (collision.gameObject.tag == "kbullet" || collision.gameObject.tag == "pbullet")
         {
             if (i < lifes.Length)
             {
+                Destroy(collision.gameObject);
                 Destroy(lifes[i]);
                 diesound.Play();
                 i++;

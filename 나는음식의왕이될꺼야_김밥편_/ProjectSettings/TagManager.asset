@@ -7,21 +7,22 @@ TagManager:
   - Border
   - kbullet
   - playerbullet
-  - jbullet
+  - pbullet
+  - laser
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - bullet
-  - Water
-  - UI
-  - bullet2
   - BorderIn
   - Water
   - UI
   - Bullet
-  - Image
-  - Button
+  - Beam
+  - 
+  - 
+  - 
+  - 
+  - laser
   - 
   - 
   - 

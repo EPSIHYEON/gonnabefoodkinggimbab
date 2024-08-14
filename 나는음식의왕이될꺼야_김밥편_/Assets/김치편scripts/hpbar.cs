@@ -13,7 +13,7 @@ public class hpbar : MonoBehaviour
     public Slider healthSlider;
     public GameObject blackout;
     public GameObject player;
-    public GameObject kBoss;
+    public GameObject KBoss;
     public GameObject kbullet;
     public AudioSource laser;
     
@@ -41,7 +41,7 @@ public class hpbar : MonoBehaviour
         laser.Play();
         currentHealth -= damageAmount;
         UpdateHealthUI();
-        hpbarAnimator.SetTrigger("hpmove");
+        hpbarAnimator.SetTrigger("new_hp");
 
         if (healthSlider.value == 0) {
             BossDie();
@@ -53,7 +53,7 @@ public class hpbar : MonoBehaviour
     {
         
         player.SetActive(false);
-        kBoss.SetActive(false);
+        KBoss.SetActive(false);
        
         blackout.SetActive(true);
         Invoke("SetScene", 3f);
@@ -81,6 +81,6 @@ public class hpbar : MonoBehaviour
 
     void SetScene()
     {
-        SceneManager.LoadScene("��ġ3");
+        SceneManager.LoadScene("김치3");
     }
 }

@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class bulletspawner : MonoBehaviour
 {
+  
     public GameObject bulletPrefab; // 총알 프리팹
     public Transform[] spawnPoints; // 8개의 위치를 저장할 배열
     public float spawnInterval = 1f; // 총알이 생성되는 간격
     public float speed = 10f;
     public Button restartButton;
     public GameObject blackout;
+    public AudioSource BackgroundSound;
     Rigidbody2D rb;
     void Start()
     {
+        BackgroundSound.Play();
         rb = GetComponent<Rigidbody2D>();
 
 
@@ -33,6 +36,7 @@ public class bulletspawner : MonoBehaviour
             }
             else
             {
+                BackgroundSound.Pause();
                 yield break; // 코루틴을 즉시 종료합니다.
             }
         }
@@ -44,6 +48,7 @@ public class bulletspawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[randomIndex];
 
         GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+        
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         if (rb != null)

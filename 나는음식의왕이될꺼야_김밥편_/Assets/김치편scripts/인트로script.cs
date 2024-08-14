@@ -11,9 +11,12 @@ public class 인트로script : MonoBehaviour
     public Text nameText;// Reference to your UI Text component
     public GameObject 김밥panel;
     public GameObject BlackMove;
+    public AudioSource scriptSound;
+    public AudioSource writeSound;
+    public AudioSource partySound;
 
 
-    string first = "떄로는 2004년... 음식을 다스리던 대장금께서 돌아가시고 만다.... ";
+    string first = "때로는 2004년...\n음식을 다스리던 대장금께서 돌아가시고 만다.... ";
     string[] dialogues = {  "급작스럽게 돌아가신 대장금께서는\n차기의 후계자를 설정하시지 못하고\n음식의 나라는 혼란에 빠지고 만다. ",
         "그 혼란을 지켜보던 ((((   ))))이는... 혼란을 막고 싶었다  ",
     "그는.... 혼란을 막고자... ","<<<<왕>>>>>이 되고자 했고" ,"궁궐인 부엌으로 향하게 된다 "}; // Array of dialogues to display  //꼭 스페이스를 마지막에 눌러주세요
@@ -80,6 +83,7 @@ public class 인트로script : MonoBehaviour
 
     void firstShowDialogue()
     {
+
         // Get the next dialogue from the array
         string currentDialogue = first;
 
@@ -87,6 +91,7 @@ public class 인트로script : MonoBehaviour
         // Update the text component with the current dialogue
         dialogueText1.text = currentDialogue;
 
+        writeSound.Play();
 
         // Move to the next dialogue in the array
 
@@ -104,6 +109,8 @@ public class 인트로script : MonoBehaviour
         // Update the text component with the current dialogue
         dialogueText1.text = currentDialogue;
 
+        writeSound.Play();
+
 
         // Move to the next dialogue in the array
         currentDialogueIndex2++;
@@ -116,7 +123,9 @@ public class 인트로script : MonoBehaviour
 
         if (currentDialogue == dialogues2[2]) {
             Gimbab.gameObject.SetActive(true);
+            partySound.Play();
         }
+
         // Update the text component with the current dialogue
         nextText2.text = currentDialogue;
 
@@ -157,9 +166,11 @@ public class 인트로script : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
-          
-                
+
             
+
+
+
 
             dialogueText1.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
@@ -178,6 +189,12 @@ public class 인트로script : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= currentDialogue.Length; i++)
         {
+
+            if (i < currentDialogue.Length && currentDialogue[i] != ' ')
+            {
+                scriptSound.Play();
+            }
+
 
 
 
@@ -228,6 +245,8 @@ public class 인트로script : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= firstDialogue.Length; i++)
         {
+
+
 
             dialogueText1.text = firstDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
