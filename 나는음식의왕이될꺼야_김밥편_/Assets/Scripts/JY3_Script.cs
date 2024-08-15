@@ -55,7 +55,7 @@ public class JY3_Script : MonoBehaviour
             else
             {
                 BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+                Invoke("SetScene", 2f);
             }
         }
     }

@@ -507,7 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 191241025}
   shakeDuration: 4
-  shakeMagnitude: 50
+  shakeMagnitude: 100
   dampingSpeed: 1
 --- !u!114 &191241028
 MonoBehaviour:
@@ -1412,7 +1412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -99.99994, y: -149.99994}
+  m_AnchoredPosition: {x: -100, y: -149.99994}
   m_SizeDelta: {x: 720, y: 630}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &716633280
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 3, y: -5}
+  m_EffectDistance: {x: 3, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &1047286020
 MonoBehaviour:

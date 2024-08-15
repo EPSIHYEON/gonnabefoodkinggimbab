@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu Instance;
     public GameObject pauseMenuPanel;
+    public GameObject SettingsPanel;
     private bool isPanelActive;
 
     private void Awake()
@@ -42,12 +43,28 @@ public class PauseMenu : MonoBehaviour
         // 게임 일시 정지
         Time.timeScale = isPanelActive ? 0f : 1f;
     }
-
-    public void OnSettingsButtonCliked()
+    public void OnSettingsButtonClicked()
     {
+        Time.timeScale = 0f;
         Debug.Log("Settings Button Clicked");
-       // 설정 메뉴로 이동하거나 설정을 여는 코드
-       pauseMenuPanel.SetActive(false);
+
+        // PauseMenu를 비활성화하고 SettingsPanel을 활성화
+        pauseMenuPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
+
+        // 게임 일시 정지
+       
+    }
+
+    public void OnConfirmSettingsButtonClicked()
+    {
+        Debug.Log("Confirm Settings Button Clicked");
+
+        // SettingsPanel을 비활성화
+        SettingsPanel.SetActive(false);
+
+        // 게임을 재개
+        Time.timeScale = 1f;
     }
 
     public void OnMainMenuButtonCliked()
