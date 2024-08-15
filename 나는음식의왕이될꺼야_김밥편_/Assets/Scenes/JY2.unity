@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 259813428}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BorderLineIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 308822561}
   - component: {fileID: 308822560}
   - component: {fileID: 308822559}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider1 (3)
   m_TagString: INborder
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 319819929}
   - component: {fileID: 319819928}
   - component: {fileID: 319819927}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider1 (2)
   m_TagString: INborder
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 411533568}
   - component: {fileID: 411533567}
   - component: {fileID: 411533566}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: collider1 (3)
   m_TagString: Border
   m_Icon: {fileID: 0}
@@ -1096,7 +1096,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 650206811}
   - component: {fileID: 650206810}
   - component: {fileID: 650206809}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: collider1 (2)
   m_TagString: Border
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1474,7 +1474,7 @@ GameObject:
   - component: {fileID: 884545726}
   - component: {fileID: 884545725}
   - component: {fileID: 884545724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider1 (1)
   m_TagString: INborder
   m_Icon: {fileID: 0}
@@ -1527,7 +1527,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1740,7 +1740,7 @@ GameObject:
   - component: {fileID: 910996556}
   - component: {fileID: 910996555}
   - component: {fileID: 910996554}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: collider1
   m_TagString: Border
   m_Icon: {fileID: 0}
@@ -1793,7 +1793,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2445,7 +2445,7 @@ GameObject:
   - component: {fileID: 1464316966}
   m_Layer: 0
   m_Name: BorderLineOut
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2579,7 +2579,7 @@ GameObject:
   - component: {fileID: 1843101197}
   - component: {fileID: 1843101196}
   - component: {fileID: 1843101195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: collider1
   m_TagString: INborder
   m_Icon: {fileID: 0}
@@ -2632,7 +2632,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2794,7 +2794,7 @@ GameObject:
   - component: {fileID: 1957262698}
   - component: {fileID: 1957262697}
   - component: {fileID: 1957262696}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: collider1 (1)
   m_TagString: Border
   m_Icon: {fileID: 0}
@@ -2847,7 +2847,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
