@@ -17,7 +17,7 @@ public class Bullet_JY : MonoBehaviour
     }
     
     void straight() {
-        rigidbullet.velocity = transform.up * 10;
+        rigidbullet.velocity = transform.up * 500;
 
     }
 

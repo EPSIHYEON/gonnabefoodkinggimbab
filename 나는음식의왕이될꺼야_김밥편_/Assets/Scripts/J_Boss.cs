@@ -13,7 +13,7 @@ public class J_Boss : MonoBehaviour
     public GameObject blackout;
     public Button restartButton;
     public int numberOfBullets = 8; // 발사할 총알의 개수
-    public float bulletSpread = 360f; // 총알의 발사 범위 (360도 원형)
+    public float bulletSpread = 360; // 총알의 발사 범위 (360도 원형)
 
     private Queue<float> playerPositions = new Queue<float>();
     private float velocity = 0.0f;
@@ -83,17 +83,35 @@ public class J_Boss : MonoBehaviour
         float angleStep = bulletSpread / numberOfBullets;
         float angle = 0f;
 
+        List<GameObject> bullets = new List<GameObject>();
+
         for (int i = 0; i < numberOfBullets; i++)
         {
-            float bulletDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-            float bulletDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            float bulletDirX = Mathf.Sin(angle * Mathf.Deg2Rad);
+            float bulletDirY = Mathf.Cos(angle * Mathf.Deg2Rad);
 
-            Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0f) - transform.position;
+            Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0f);
             GameObject bullet = Instantiate(Jbullet, transform.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = bulletMoveDirection.normalized * 1000f;
+            rb.velocity = bulletMoveDirection.normalized * 400f; // 필요한 속도로 설정
 
             angle += angleStep;
+
+        }
+
+        // 총알들끼리 충돌 무시 설정
+        for (int i = 0; i < bullets.Count; i++)
+        {
+            Collider2D bulletCollider = bullets[i].GetComponent<Collider2D>();
+
+            for (int j = i + 1; j < bullets.Count; j++)
+            {
+                Collider2D otherBulletCollider = bullets[j].GetComponent<Collider2D>();
+                if (bulletCollider != null && otherBulletCollider != null)
+                {
+                    Physics2D.IgnoreCollision(bulletCollider, otherBulletCollider);
+                }
+            }
         }
 
         Debug.Log("Boss가 원형으로 총알 발사 중");
