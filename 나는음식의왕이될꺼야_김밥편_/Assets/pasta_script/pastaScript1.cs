@@ -97,6 +97,10 @@ public class pastaScript1 : MonoBehaviour
         // Get the next dialogue from the array
         string currentDialogue = dialogues[currentDialogueIndex2];
 
+        if (currentDialogue == dialogues[1]) {
+            EffectSound.Play();
+        }
+
 
         // Update the text component with the current dialogue
         dialogueText.text = currentDialogue;

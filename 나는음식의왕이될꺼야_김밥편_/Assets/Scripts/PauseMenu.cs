@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu Instance;
     public GameObject pauseMenuPanel;
     public GameObject SettingsPanel;
+    public GameObject music1;
+    public GameObject music2;
     private bool isPanelActive;
 
     private void Awake()
