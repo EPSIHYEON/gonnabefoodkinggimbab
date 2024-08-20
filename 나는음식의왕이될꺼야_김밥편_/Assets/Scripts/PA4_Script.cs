@@ -28,8 +28,11 @@ public class PA4_Script : MonoBehaviour
  
     public GameObject BlackOut;
     public GameObject BlackMove;
+    public GameObject Ending;
+    public GameObject Endingbtn;
     public Text dialogueText;
     public AudioSource scriptSound;
+    public AudioSource BackgroundSound;
     private Coroutine typingCoroutine;
 
     void Start()
@@ -59,10 +62,15 @@ public class PA4_Script : MonoBehaviour
                 
             else
             {
-                BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+                Ending.SetActive(true);
+                Invoke("lateButton", 5f);
             }
         }
+    }
+
+    void lateButton() {
+
+        Endingbtn.SetActive(true);
     }
     
     
@@ -75,6 +83,10 @@ public class PA4_Script : MonoBehaviour
 
         // Update the text component with the current dialogue
         dialogueText.text = currentDialogue;
+
+        if (currentDialogue == dialogues[4]) {
+            BackgroundSound.Play();
+        }
 
 
         // Move to the next dialogue in the array

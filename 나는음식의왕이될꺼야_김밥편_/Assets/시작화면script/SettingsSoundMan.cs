@@ -9,7 +9,8 @@ public class SettingsSoundMan : MonoBehaviour
         public AudioSource backmusic;
         public AudioSource backmusic_2;
         public AudioSource backmusic_3;
-         public AudioSource btnSource;
+    public AudioSource backmusic_4;
+    public AudioSource btnSource;
         public AudioSource EffectSound;
         public AudioSource scriptSound;
 
@@ -20,7 +21,8 @@ public class SettingsSoundMan : MonoBehaviour
 
             backmusic.volume = volume;
         backmusic_2.volume = volume;
-        backmusic_3.volume = volume; // 슬라이더 값에 따라 오디오 볼륨 설정
+        backmusic_3.volume = volume;
+        backmusic_4.volume = volume;// 슬라이더 값에 따라 오디오 볼륨 설정
 
 
     }

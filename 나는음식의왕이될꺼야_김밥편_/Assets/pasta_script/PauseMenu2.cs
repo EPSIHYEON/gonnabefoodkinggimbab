@@ -1,30 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu2 : MonoBehaviour
 {
-    public static PauseMenu Instance;
+    public static PauseMenu2 Instance;
     public GameObject pauseMenuPanel;
     public GameObject SettingsPanel;
     public GameObject music1;
     public AudioSource[] music2;
     private bool isPanelActive;
 
-    private void Awake()
-    {
-        // ì‹±ê¸€í„´ íŒ¨í„´ì„ ì‚¬ìš©í•˜ì—¬ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìœ ì§€
-        if (Instance ==  null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else{
-            Destroy(gameObject);  // ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì¸ìŠ¤í„´ìŠ¤ê°€ ìˆìœ¼ë©´ í˜„ì¬ ê°ì²´ë¥¼ íŒŒê´´
-        }
-    }
-
+  
 
 
     // Update is called once per frame
@@ -38,11 +26,11 @@ public class PauseMenu : MonoBehaviour
 
     private void TogglePauseMenu()
     {
-        // íŒ¨ë„ í™œì„±í™”-ë¹„í™œì„±í™”
+        // ÆĞ³Î È°¼ºÈ­-ºñÈ°¼ºÈ­
         isPanelActive = !isPanelActive;
         pauseMenuPanel.SetActive(isPanelActive);
 
-        // ê²Œì„ ì¼ì‹œ ì •ì§€
+        // °ÔÀÓ ÀÏ½Ã Á¤Áö
         Time.timeScale = isPanelActive ? 0f : 1f;
     }
     public void OnSettingsButtonClicked()
@@ -50,35 +38,35 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         Debug.Log("Settings Button Clicked");
 
-        // PauseMenuë¥¼ ë¹„í™œì„±í™”í•˜ê³  SettingsPanelì„ í™œì„±í™”
+        // PauseMenu¸¦ ºñÈ°¼ºÈ­ÇÏ°í SettingsPanelÀ» È°¼ºÈ­
         pauseMenuPanel.SetActive(false);
         SettingsPanel.SetActive(true);
 
-        // ê²Œì„ ì¼ì‹œ ì •ì§€
-       
+        // °ÔÀÓ ÀÏ½Ã Á¤Áö
+
     }
 
     public void OnConfirmSettingsButtonClicked()
     {
         Debug.Log("Confirm Settings Button Clicked");
 
-        // SettingsPanelì„ ë¹„í™œì„±í™”
+        // SettingsPanelÀ» ºñÈ°¼ºÈ­
         SettingsPanel.SetActive(false);
 
-        // ê²Œì„ì„ ì¬ê°œ
+        // °ÔÀÓÀ» Àç°³
         Time.timeScale = 1f;
     }
 
     public void OnMainMenuButtonCliked()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("ì‹œì‘í™”ë©´");
+        SceneManager.LoadScene("½ÃÀÛÈ­¸é");
         pauseMenuPanel.SetActive(false);
     }
 
     public void OnQuitButtonCliked()
     {
-       Application.Quit();
-       pauseMenuPanel.SetActive(false);
+        Application.Quit();
+        pauseMenuPanel.SetActive(false);
     }
 }
