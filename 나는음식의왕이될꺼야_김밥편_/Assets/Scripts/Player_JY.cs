@@ -15,19 +15,16 @@ public class Player_JY : MonoBehaviour
     private int i = 0;
 
     Rigidbody2D rigid;
+    Vector3 lastValidPosition;
 
     void Start()
     {
         restartButton.gameObject.SetActive(false);
         rigid = GetComponent<Rigidbody2D>();
         active = true;
-
-
+        lastValidPosition = transform.position;
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
         if (active == true)
@@ -39,17 +36,18 @@ public class Player_JY : MonoBehaviour
                 shoot();
             }
         }
-
     }
 
     void move()
     {
-
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 move = new Vector3(h, v, 0);
-        transform.position = move * Time.deltaTime * speed + transform.position;
+        Vector3 newPosition = move * Time.deltaTime * speed + transform.position;
 
+        // 이동 시도 전에 마지막으로 유효했던 위치 저장
+        lastValidPosition = transform.position;
+        transform.position = newPosition;
     }
 
     void shoot()
@@ -57,7 +55,6 @@ public class Player_JY : MonoBehaviour
         Instantiate(bullets, transform.position, transform.rotation);
         Debug.Log("발사되고 있음");
     }
-
 
     public void Restart()
     {
@@ -70,6 +67,14 @@ public class Player_JY : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // "INBorder" 태그와 충돌했을 때
+        if (collision.gameObject.tag == "INBorder" && collision.gameObject.layer == LayerMask.NameToLayer("BorderIn"))
+        {
+            Debug.Log("경계에 부딪힘: 되돌아갑니다.");
+            transform.position = lastValidPosition; // 플레이어를 마지막 유효 위치로 되돌림
+        }
+
+        // 예: 다른 충돌 처리
         if (collision.gameObject.tag == "jbullet")
         {
             if (i < lifes.Length)
@@ -78,7 +83,8 @@ public class Player_JY : MonoBehaviour
                 diesound.Play();
                 i++;
             }
-            else{
+            else
+            {
                 diesound.Play();
                 active = false;
                 gameObject.SetActive(false);
@@ -86,6 +92,5 @@ public class Player_JY : MonoBehaviour
             }
         }
     }
-
-
 }
+

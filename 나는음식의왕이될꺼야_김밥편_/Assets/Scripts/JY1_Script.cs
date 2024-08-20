@@ -54,7 +54,7 @@ public class JY1_Script : MonoBehaviour
             else
             {
                 BlackOut.SetActive(true);
-                Invoke("SetScene", 1f);
+                Invoke("SetScene", 2f);
             }
         }
     }
@@ -184,7 +184,7 @@ public class JY1_Script : MonoBehaviour
             if (i >= 0 && i < 10) 
             {
                 dialogueText.text = firstDialogue.Substring(0, i);
-                yield return new WaitForSeconds(0.2f); // 느리게 표시
+                yield return new WaitForSeconds(0.1f); // 느리게 표시
             }
             else
             {
