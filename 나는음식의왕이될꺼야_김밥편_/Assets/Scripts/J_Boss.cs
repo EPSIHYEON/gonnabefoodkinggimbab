@@ -87,16 +87,19 @@ public class J_Boss : MonoBehaviour
 
         for (int i = 0; i < numberOfBullets; i++)
         {
-            float bulletDirX = Mathf.Sin(angle * Mathf.Deg2Rad);
-            float bulletDirY = Mathf.Cos(angle * Mathf.Deg2Rad);
+            float bulletDirX = Mathf.Cos(angle * Mathf.Deg2Rad);
+            float bulletDirY = Mathf.Sin(angle * Mathf.Deg2Rad);
 
             Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0f);
             GameObject bullet = Instantiate(Jbullet, transform.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = bulletMoveDirection.normalized * 400f; // 필요한 속도로 설정
+
+            // 방향 벡터를 정규화하여 정확한 방향으로 발사
+            rb.velocity = bulletMoveDirection.normalized * 500f;
+
+            bullets.Add(bullet);
 
             angle += angleStep;
-
         }
 
         // 총알들끼리 충돌 무시 설정
@@ -116,5 +119,6 @@ public class J_Boss : MonoBehaviour
 
         Debug.Log("Boss가 원형으로 총알 발사 중");
     }
+
 }
 
