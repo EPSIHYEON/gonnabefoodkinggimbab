@@ -10,6 +10,7 @@ public class 김치편script2 : MonoBehaviour
     public GameObject BlackMove;
     public AudioSource scriptSound;
     public AudioSource Effectsound;
+    public AudioSource lovesound;
 
     public Text dialogueText;
 
@@ -94,6 +95,11 @@ public class 김치편script2 : MonoBehaviour
 
         // Update the text component with the current dialogue
         dialogueText.text = currentDialogue;
+
+        if (currentDialogue == dialogues[15]) {
+            lovesound.time = 1.5f;
+            lovesound.Play();
+        }
 
 
         // Move to the next dialogue in the array

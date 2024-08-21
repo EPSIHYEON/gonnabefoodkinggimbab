@@ -148,8 +148,16 @@ public class pastaScript1 : MonoBehaviour
                 scriptSound.Play();
             }
 
+            if (currentDialogue == dialogues[6] && i>= 22 && i<=25)
+            {
+                dialogueText.text = currentDialogue.Substring(0, i); // 현재 인덱스까지의 문자열을 표시
 
-            if (currentDialogue == dialogues[6] && i == 22) {
+                yield return new WaitForSeconds(0.2f); // 0.05초마다 한 글자씩 표시
+
+            }
+
+
+            if (currentDialogue == dialogues[6] && i == 21) {
                 EffectSound.Play();
             
             }

@@ -24,6 +24,8 @@ public class JY1_Script : MonoBehaviour
     public GameObject BlackMove;
     public Text dialogueText;
     public AudioSource scriptSound;
+    public AudioSource EffectSound;
+    public AudioSource BackgroundSound;
     private Coroutine typingCoroutine;
 
     void Start()
@@ -58,8 +60,8 @@ public class JY1_Script : MonoBehaviour
             }
         }
     }
-    
-    
+
+
 
     void ShowDialogue()
     {
@@ -69,6 +71,13 @@ public class JY1_Script : MonoBehaviour
 
         // Update the text component with the current dialogue
         dialogueText.text = currentDialogue;
+        if (currentDialogue == dialogues[0])
+        {
+            EffectSound.Play();
+        }
+        if (currentDialogue == dialogues[2]) {
+            BackgroundSound.Play();
+        }
 
 
         // Move to the next dialogue in the array

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class hpbar_JY : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 350;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject blackout;
@@ -43,7 +43,7 @@ public class hpbar_JY : MonoBehaviour
         laser.Play();
         currentHealth -= damageAmount;
         UpdateHealthUI();
-        hpbarAnimator.SetTrigger("hp_move");
+        hpbarAnimator.SetTrigger("new_hp");
 
         if (healthSlider.value == 0) {
             BossDie();
