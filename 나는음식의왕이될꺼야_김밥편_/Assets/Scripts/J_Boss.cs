@@ -95,7 +95,7 @@ public class J_Boss : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
             // 방향 벡터를 정규화하여 정확한 방향으로 발사
-            rb.velocity = bulletMoveDirection.normalized * 500f;
+            rb.velocity = bulletMoveDirection.normalized * 10f;
 
             bullets.Add(bullet);
 
