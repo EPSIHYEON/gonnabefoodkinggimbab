@@ -89,7 +89,7 @@ public class hpbar_JY : MonoBehaviour
             Debug.Log("Collided with playerbullet");
 
             Destroy(collision.gameObject);
-            TakeDamage(5);
+            TakeDamage(100 / 35);
 
 
         }
