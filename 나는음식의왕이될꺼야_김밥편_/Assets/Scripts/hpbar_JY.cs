@@ -16,6 +16,7 @@ public class hpbar_JY : MonoBehaviour
     public GameObject JBoss;
     public GameObject Jbullet;
     public AudioSource laser;
+    public AudioSource BackgroundMusic;
     
    
     private Animator hpbarAnimator;
@@ -25,6 +26,7 @@ public class hpbar_JY : MonoBehaviour
         hpbarAnimator = GameObject.Find("hpbar").GetComponent<Animator>();
         currentHealth = maxHealth;
         UpdateHealthUI();
+        BackgroundMusic.Play();
     }
     void Update()
     {
@@ -51,13 +53,29 @@ public class hpbar_JY : MonoBehaviour
 
     void BossDie()
     {
-        
+        // 배경화면 페이드아웃 되면서 중지
+        StartCoroutine(FadeOutMusic(1f));
+
         player.SetActive(false);
         JBoss.SetActive(false);
        
         blackout.SetActive(true);
         Invoke("SetScene", 3f);
 
+    }
+
+    IEnumerator FadeOutMusic(float fadeDuration)
+    {
+        float StartVolume = BackgroundMusic.volume;
+
+        while (BackgroundMusic.volume > 0)
+        {
+            BackgroundMusic.volume -= StartVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+        
+        BackgroundMusic.Stop();
+        BackgroundMusic.volume = StartVolume;
     }
 
 
@@ -71,7 +89,7 @@ public class hpbar_JY : MonoBehaviour
             Debug.Log("Collided with playerbullet");
 
             Destroy(collision.gameObject);
-            TakeDamage(10);
+            TakeDamage(5);
 
 
         }
