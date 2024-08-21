@@ -3,21 +3,28 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Border
+  - kbullet
+  - playerbullet
+  - pbullet
+  - laser
+  - jbullet
+  - INborder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BorderIn
   - Water
   - UI
+  - Bullet
+  - Beam
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - laser
   - 
   - 
   - 
@@ -40,4 +47,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 2
+    uniqueID: 652903567
+    locked: 0
+  - name: image
+    uniqueID: 765693339
+    locked: 0
+  - name: Button
+    uniqueID: 2545929387
     locked: 0
