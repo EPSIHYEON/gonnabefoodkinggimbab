@@ -60,7 +60,7 @@ public class player_JY : MonoBehaviour
     {
         Debug.Log("재시작");
 
-        SceneManager.LoadScene("JY2-1");
+        SceneManager.LoadScene("JY2");
 
         active = true;
     }
@@ -69,7 +69,7 @@ public class player_JY : MonoBehaviour
     {
         Debug.Log("재시작");
 
-        SceneManager.LoadScene("JY2-1");
+        SceneManager.LoadScene("JY2");
 
         active = true;
 
