@@ -97,7 +97,7 @@ public class 김치편script2 : MonoBehaviour
         dialogueText.text = currentDialogue;
 
         if (currentDialogue == dialogues[15]) {
-            lovesound.time = 1.5f;
+            lovesound.time = 1f;
             lovesound.Play();
         }
 
