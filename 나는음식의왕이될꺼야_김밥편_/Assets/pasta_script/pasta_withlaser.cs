@@ -16,7 +16,7 @@ public class pasta_withlaser : MonoBehaviour
     void Start()
     {
         // 처음 healthSlider의 value를 0.2로 설정
-        healthSlider.value = 0.2f;
+       
 
         Invoke("StartLate", 0.5f);
 
@@ -83,7 +83,7 @@ public class pasta_withlaser : MonoBehaviour
         }
 
         Blackout.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         SetScene();
     }
 

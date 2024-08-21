@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class pasta_3 : MonoBehaviour
 {
     public GameObject panel;
+    public Slider healthSlider;
     public GameObject BlackOut;
     public GameObject BlackMove;
     public AudioSource typingsound;
@@ -50,7 +51,7 @@ public class pasta_3 : MonoBehaviour
     void Start()
     {
 
-        
+        healthSlider.value = 0.2f;
         BlackMove.SetActive(true);
         firstshowImage();
         firstshowName();

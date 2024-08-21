@@ -13,6 +13,7 @@ public class pastaScript1 : MonoBehaviour
     public GameObject pboss;
     public GameObject babbullet;
     public AudioSource scriptSound;
+    public AudioSource EffectSound;
 
 
     public Text dialogueText;
@@ -67,7 +68,7 @@ public class pastaScript1 : MonoBehaviour
                 
                 BlackOut.SetActive(true);
                 playergim.SetActive(false);
-                Invoke("SetScene", 1f);
+                Invoke("SetScene", 2f);
 
             }
         }
@@ -95,6 +96,10 @@ public class pastaScript1 : MonoBehaviour
     {
         // Get the next dialogue from the array
         string currentDialogue = dialogues[currentDialogueIndex2];
+
+        if (currentDialogue == dialogues[1]) {
+            EffectSound.Play();
+        }
 
 
         // Update the text component with the current dialogue
@@ -141,6 +146,12 @@ public class pastaScript1 : MonoBehaviour
             if (i < currentDialogue.Length && currentDialogue[i] != ' ')
             {
                 scriptSound.Play();
+            }
+
+
+            if (currentDialogue == dialogues[6] && i == 22) {
+                EffectSound.Play();
+            
             }
 
 

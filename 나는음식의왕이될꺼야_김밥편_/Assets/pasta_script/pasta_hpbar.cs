@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class pasta_hpbar : MonoBehaviour
 {
-    private int maxHealth = 400;
+    private int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject blackout;
