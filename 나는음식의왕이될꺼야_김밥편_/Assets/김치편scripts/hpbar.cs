@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class hpbar : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 300;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject blackout;

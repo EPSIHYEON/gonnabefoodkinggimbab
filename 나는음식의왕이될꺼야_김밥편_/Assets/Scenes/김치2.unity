@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a8394acfe60fa4f9d8cd7aaddce767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   currentHealth: 0
   healthSlider: {fileID: 179515589}
   blackout: {fileID: 414292507}

@@ -25,6 +25,7 @@ public class JY3_Script : MonoBehaviour
     public GameObject BlackMove;
     public Text dialogueText;
     public AudioSource scriptSound;
+    public AudioSource Effectsound;
     private Coroutine typingCoroutine;
 
     void Start()
@@ -70,6 +71,10 @@ public class JY3_Script : MonoBehaviour
 
         // Update the text component with the current dialogue
         dialogueText.text = currentDialogue;
+
+        if (currentDialogue == dialogues[9]) {
+            Effectsound.Play();
+        }
 
 
         // Move to the next dialogue in the array
